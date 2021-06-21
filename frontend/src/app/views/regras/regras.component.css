@@ -1,0 +1,10 @@
+.btn-rounded {
+    text-align: center;
+    /* font: normal normal normal 20px/2px Hello Avocado; */
+    padding: 5px 2em;
+    border-radius: 20px;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    text-shadow: 0px 3px 6px #00000059;
+    opacity: 1;
+}

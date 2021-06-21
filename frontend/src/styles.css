@@ -1,0 +1,38 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+@font-face {
+	font-family: HelloAvocado;
+	src: url(../src/assets/fonts/HelloAvocado.ttf);   
+}
+
+html, body { height: 100%; }
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    background-image: url("./assets/img/baloes-background.png")!important;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-danger {
+    background-color: #EF0000!important;
+}
+
+.font-avocado {
+    font-family: HelloAvocado;
+}
+
+.card-header:first-child {
+    border-radius: calc(.25rem - -10px) calc(.25rem - -10px) 0 0!important;
+}
+
+.bg-balloons {
+        background-image: url("./assets/img/baloes-background.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+}
+
+.w-100 {
+    width: 100%!important;
+}
