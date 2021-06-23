@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { QuestioncardComponent } from './components/questioncard/questioncard.component';
+import { AdminComponent } from './views/admin/admin.component';
 import { AgradecimentoComponent } from './views/agradecimento/agradecimento.component';
 import { ApresentacaoComponent } from './views/apresentacao/apresentacao.component';
 import { LoginComponent } from './views/login/login.component';
@@ -15,7 +16,9 @@ const routes: Routes = [
   
   { path:'question/:id', component: QuestioncardComponent },
   { path:'agradecimento', component: AgradecimentoComponent },
-  { path:'ranking', component: RankingComponent }
+  { path:'ranking', component: RankingComponent },
+  { path:'admin', component: AdminComponent }
+
 ];
 
 
