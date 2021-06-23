@@ -21,6 +21,8 @@ export class QuestioncardComponent implements OnInit {
 
   constructor(private quizService: QuizService) { }
 
+
+  
   ngOnInit(): void {
     this.listaPerguntas();
   }
