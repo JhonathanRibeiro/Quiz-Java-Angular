@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Quiz } from 'src/app/quiz.model';
+import { FormControl } from '@angular/forms';
 import { QuizService } from 'src/app/quiz.service';
 
 @Component({
@@ -9,11 +9,12 @@ import { QuizService } from 'src/app/quiz.service';
 })
 export class QuestioncardComponent implements OnInit {
 
-  question: Array<any> = new Array();
-  option: Array<any> = new Array();
-
   pergunta: Array<any> = new Array();
   opcao: Array<any> = new Array();
+
+  control = new FormControl();
+
+  public respostas = [];
 
   count = 1;
   currentQuiz = 0;
@@ -22,31 +23,19 @@ export class QuestioncardComponent implements OnInit {
 
   ngOnInit(): void {
     this.listaPerguntas();
-    this.listaOpcoes();
   }
 
   public listaPerguntas() {
     this.quizService.listaPergunta().subscribe(question => {
-      console.log(question)
-      this.question = question
+      this.pergunta = question
+
+      question.forEach((el:any) => {
+          console.log('elemento:', el)
+      });
+
+      console.log('Perguntas', this.pergunta)
     }, err => {
       console.log('Não foi possível exibir a pergunta.', err);
-    });
-  }
-
-  public listaOpcoes(): void {
-    this.quizService.listaOpcoes().subscribe(option => {
-
-      this.option = option;
-      option.forEach((el: any) => {
-        if (el.pergunta.id == this.count) {
-          console.log('opção:', el.descricao)
-          this.opcao = el.descricao;
-        }
-        
-      });
-    }, err => {
-      console.log('Não foi possível exibir as opções.', err);
     });
   }
 

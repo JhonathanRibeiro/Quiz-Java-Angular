@@ -10,14 +10,17 @@
                     </span>
                 </div>
 
-                <div class="card rounded">
-                    <div class="card-header text-light p-4 bg-danger">
-                        {{question[currentQuiz].descricao}}
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"></li>
-                    </ul>
-                </div>
+                <mat-card>
+                    <mat-card-header>
+                        <mat-card-title>{{pergunta[currentQuiz].descricao}}</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <mat-radio-group [formControl]="control" aria-label="Select an option">
+                            <mat-radio-button *ngFor="let opcao of pergunta[currentQuiz].listaOpcoes" value="1">{{opcao.descricao}}</mat-radio-button>
+                        </mat-radio-group>
+                    </mat-card-content>
+                </mat-card>
+                
 
                 <div class="d-flex justify-content-end p-3">
                     <button type="button" class="btn btn-lg btn-disabled font-avocado">Proximo</button>

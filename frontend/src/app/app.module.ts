@@ -18,6 +18,9 @@ import { ApresentacaoComponent } from './views/apresentacao/apresentacao.compone
 import { QuizService } from './quiz.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminComponent } from './views/admin/admin.component';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatCardModule} from '@angular/material/card';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -38,6 +41,10 @@ import { AdminComponent } from './views/admin/admin.component';
     MatToolbarModule,
     MatIconModule,
     HttpClientModule,
+    MatRadioModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatCardModule
   ],
   providers: [HttpClientModule,QuizService],
   bootstrap: [AppComponent]
