@@ -8,6 +8,7 @@ import { RankingComponent } from './views/ranking/ranking.component';
 import { RegrasComponent } from './views/regras/regras.component';
 
 const routes: Routes = [
+  { path:'', component: LoginComponent },
   { path:'login', component: LoginComponent },
   { path:'apresentacao', component: ApresentacaoComponent },
   { path: 'regras', component: RegrasComponent },
