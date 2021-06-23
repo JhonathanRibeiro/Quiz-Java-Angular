@@ -17,6 +17,7 @@ import { ApresentacaoComponent } from './views/apresentacao/apresentacao.compone
 
 import { QuizService } from './quiz.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminComponent } from './views/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     AgradecimentoComponent,
     RankingComponent,
-    ApresentacaoComponent
+    ApresentacaoComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

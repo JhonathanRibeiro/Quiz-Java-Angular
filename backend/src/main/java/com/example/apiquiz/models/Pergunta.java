@@ -1,6 +1,7 @@
 package com.example.apiquiz.models;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,8 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -24,14 +24,20 @@ public class Pergunta implements Serializable{
 	@Column(length=250)
 	private String descricao;
 	
-	@ManyToMany
-	@JoinTable(name="opcao",
-		joinColumns = @JoinColumn(name = "pergunta_id"),
-		inverseJoinColumns = @JoinColumn(name="id")
-	)
+	@OneToMany
+	@JoinColumn(name="pergunta_id")
+    private List<Opcao> listaOpcoes;	
 
 	public long getId() {
 		return id;
+	}
+
+	public List<Opcao> getListaOpcoes() {
+		return listaOpcoes;
+	}
+
+	public void setListaOpcoes(List<Opcao> listaOpcoes) {
+		this.listaOpcoes = listaOpcoes;
 	}
 
 	public void setId(long id) {

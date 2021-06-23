@@ -8,7 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -19,14 +18,12 @@ public class Opcao implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id",  columnDefinition = "long default 0")     
     private long id;
 	
 	@Column(length=200)
 	private String descricao;
 	
 	@ManyToOne
-	@JoinColumn(name = "pergunta_id")
 	private Pergunta pergunta;
 	
 	@Column(length=4)
