@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\jhonathan.ribeiro\Documents\projects\branch-develop-quiz\quiz-app\backend"/>
 			<item value="C:\Users\Jhonathan\eclipse-workspace\apiquiz"/>
 		</list>
 		<list key="projectNameTemplate">
