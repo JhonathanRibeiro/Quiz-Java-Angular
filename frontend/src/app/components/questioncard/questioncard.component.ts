@@ -8,26 +8,51 @@ import { QuizService } from 'src/app/quiz.service';
   styleUrls: ['./questioncard.component.css']
 })
 export class QuestioncardComponent implements OnInit {
-  
+
   question: Array<any> = new Array();
   option: Array<any> = new Array();
-  currentQuiz = 1;
-  
-  constructor(private quizService: QuizService) {}
+
+  pergunta: Array<any> = new Array();
+  opcao: Array<any> = new Array();
+
+  count = 1;
+  currentQuiz = 0;
+
+  constructor(private quizService: QuizService) { }
 
   ngOnInit(): void {
-    this.quizService.listaPergunta().subscribe(question=>{
-      this.question = question;
+    this.listaPerguntas();
+    this.listaOpcoes();
+  }
+
+  public listaPerguntas() {
+    this.quizService.listaPergunta().subscribe(question => {
       console.log(question)
-    }, err =>{
+      this.question = question
+    }, err => {
       console.log('Não foi possível exibir a pergunta.', err);
     });
+  }
 
-    this.quizService.listaOpcoes().subscribe(option=>{
+  public listaOpcoes(): void {
+    this.quizService.listaOpcoes().subscribe(option => {
+
       this.option = option;
-      console.log(option)
-    }, err =>{
+      option.forEach((el: any) => {
+        if (el.pergunta.id == this.count) {
+          console.log('opção:', el.descricao)
+          this.opcao = el.descricao;
+        }
+        
+      });
+    }, err => {
       console.log('Não foi possível exibir as opções.', err);
     });
   }
+
+  public next(): void {
+
+  }
+
+
 }
