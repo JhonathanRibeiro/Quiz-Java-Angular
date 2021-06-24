@@ -3,12 +3,12 @@
         <div class="container">
             <span class="navbar-brand text-light text-logo">
                 <span class="font-avocado">QUIZ</span>
-                <img src="./../../../assets/img/icons/logo.png" class="logo" alt="">
+            <img src="./../../../assets/img/icons/logo.png" class="logo" alt="">
             </span>
         </div>
-         <!-- <button class="btn btn-disabled text-light font-avocado">
-             <span class="timer">30</span><br>
+        <button class="btn btn-disabled text-light font-avocado" *ngIf="displayElement">
+             <span class="timer">{{time}}</span><br>
              <span>tempo</span>
-         </button> -->
+         </button>
     </div>
 </nav>

@@ -1,18 +1,33 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
 @font-face {
-	font-family: HelloAvocado;
-	src: url(../src/assets/fonts/HelloAvocado.ttf);   
+    font-family: HelloAvocado;
+    src: url(../src/assets/fonts/HelloAvocado.ttf);
 }
 
-html, body { height: 100%; }
-body { 
-    margin: 0; 
-    font-family: Roboto, "Helvetica Neue", sans-serif; 
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
     background-image: url("./assets/img/baloes-background.png")!important;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.mat-radio-outer-circle {
+    border: none!important;
+}
+
+.bg-success {
+    background-color: #00D279!important;
+}
+
+.bg-warning {
+    background-color: #E3C000!important;
 }
 
 .bg-danger {
@@ -28,9 +43,9 @@ body {
 }
 
 .bg-balloons {
-        background-image: url("./assets/img/baloes-background.png");
-        background-repeat: no-repeat;
-        background-size: cover;
+    background-image: url("./assets/img/baloes-background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .w-100 {

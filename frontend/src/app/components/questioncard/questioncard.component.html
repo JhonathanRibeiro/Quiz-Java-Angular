@@ -5,23 +5,37 @@
             <div class="col-lg-8">
 
                 <div class="d-flex justify-content-end p-3">
-                    <span class="badge p-2 bg-danger">
-                        <span class="p-2 m-2 font-avocado h6"> 1/30</span>
+                    <span class="badge p-2" [ngClass]="{
+                        'bg-success': pergunta[currentQuiz].dificuldade === 'facil',
+                        'bg-warning': pergunta[currentQuiz].dificuldade === 'media',
+                        'bg-danger': pergunta[currentQuiz].dificuldade  === 'dificil'
+                   }">
+                        <span class="p-2 m-2 font-avocado h6"> {{currentQuiz+1}} / {{pergunta.length}}</span>
                     </span>
                 </div>
 
-                <div class="card rounded">
-                    <div class="card-header text-light p-4 bg-danger">
-                        {{question[currentQuiz].descricao}}
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"></li>
-                    </ul>
-                </div>
+                <mat-card class="card">
+                    <mat-card-header class="card-header text-light p-4" [ngClass]="{
+                        'bg-success': pergunta[currentQuiz].dificuldade === 'facil',
+                        'bg-warning': pergunta[currentQuiz].dificuldade === 'media',
+                        'bg-danger': pergunta[currentQuiz].dificuldade  === 'dificil'
+                   }">
+                        <mat-card-title>{{pergunta[currentQuiz].descricao}}</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <mat-radio-group [formControl]="control" aria-labelledby="example-radio-group-label" class="list-group list-group-flush">
+                            <mat-radio-button *ngFor="let opcao of pergunta[currentQuiz].listaOpcoes" class="list-group-item" (change)="onAnswer(opcao.id)" value="{{opcao.id}}">
+                                {{opcao.descricao}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </mat-card-content>
+                </mat-card>
 
-                <div class="d-flex justify-content-end p-3">
-                    <button type="button" class="btn btn-lg btn-disabled font-avocado">Proximo</button>
-                </div>
+                <!-- <div class="d-flex justify-content-end p-3">
+                    <button type="button" class="btn btn-lg btn-disabled font-avocado">
+                        Proximo
+                    </button>
+                </div> -->
 
             </div>
             <div class="col-lg-2"></div>

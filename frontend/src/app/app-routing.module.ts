@@ -14,7 +14,7 @@ const routes: Routes = [
   { path:'apresentacao', component: ApresentacaoComponent },
   { path: 'regras', component: RegrasComponent },
   
-  { path:'question/:id', component: QuestioncardComponent },
+  { path:'quiz', component: QuestioncardComponent },
   { path:'agradecimento', component: AgradecimentoComponent },
   { path:'ranking', component: RankingComponent },
   { path:'admin', component: AdminComponent }

@@ -23,6 +23,9 @@ public class Pergunta implements Serializable{
 	
 	@Column(length=250)
 	private String descricao;
+
+	@Column(length=8)
+	private String dificuldade;
 	
 	@OneToMany
 	@JoinColumn(name="pergunta_id")
@@ -50,5 +53,13 @@ public class Pergunta implements Serializable{
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public String getDificuldade() {
+		return dificuldade;
+	}
+
+	public void setDificuldade(String dificuldade) {
+		this.dificuldade = dificuldade;
 	}
 }
