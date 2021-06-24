@@ -16,7 +16,7 @@ export class ApresentacaoComponent implements OnInit {
           this.time--;
           console.log(`Tempo: ${this.time}`);
         } else {
-          window.location.replace("/question/1");
+          window.location.replace("/quiz");
         }
       },1000)
     }
