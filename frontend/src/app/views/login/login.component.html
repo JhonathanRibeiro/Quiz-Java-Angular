@@ -8,14 +8,30 @@
             <form [formGroup]="formulario">
                 <div class="form-group">
                     <label for="nome">Qual seu nome completo?</label>
-                    <input type="text" id="nome" formControlName="nome" class="form-control" aria-describedby="nome" placeholder="Seu nome completo...">
+                    <input type="text" id="nome" formControlName="nome" [(ngModel)]="usuario.nome" class="form-control" aria-describedby="nome" placeholder="Seu nome completo...">
+
+                    <ng-container *ngIf="formulario.controls.nome.touched">
+                        <span *ngIf="formulario.controls.nome.errors" class="text-danger">
+                            Campo obrigatório
+                        </span>
+                    </ng-container>
                     <br>
                 </div>
                 <div class="form-group">
                     <label for="email">Seu melhor email</label>
-                    <input type="email" id="email" formControlName="email" class="form-control" aria-describedby="email" placeholder="nome.sobrenome@ids.inf.br"> <br>
+                    <input type="email" id="email" formControlName="email" class="form-control" [(ngModel)]="usuario.email" aria-describedby="email" placeholder="nome.sobrenome@ids.inf.br">
+
+                    <ng-container *ngIf="formulario.controls.email.touched">
+                        <span *ngIf="formulario.controls.email.errors?.required" class="text-danger">
+                            Campo obrigatório
+                        </span>
+                        <span *ngIf="formulario.controls.email.errors?.email" class="text-danger">
+                            E-mail inválido
+                        </span>
+                    </ng-container>
+                    <br><br>
                 </div>
-                <button type="button" class="btn btn-primary btn-lg btn-block font-avocado w-100" routerLink="/regras" (click)="cadastraUsuario()">Avançar</button>
+                <button type="button" class="btn btn-primary btn-lg btn-block font-avocado w-100" (click)="login()" [disabled]="!formulario.valid">Avançar</button>
             </form>
 
         </div>

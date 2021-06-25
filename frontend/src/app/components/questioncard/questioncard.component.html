@@ -24,18 +24,18 @@
                     </mat-card-header>
                     <mat-card-content>
                         <mat-radio-group [formControl]="control" aria-labelledby="example-radio-group-label" class="list-group list-group-flush">
-                            <mat-radio-button *ngFor="let opcao of pergunta[currentQuiz].listaOpcoes" class="list-group-item" (change)="onAnswer(opcao.id)" value="{{opcao.id}}">
+                            <mat-radio-button *ngFor="let opcao of pergunta[currentQuiz].listaOpcoes" class="list-group-item" value="{{opcao.id}}" #opcaoid>
                                 {{opcao.descricao}}
                             </mat-radio-button>
                         </mat-radio-group>
                     </mat-card-content>
                 </mat-card>
 
-                <!-- <div class="d-flex justify-content-end p-3">
-                    <button type="button" class="btn btn-lg btn-disabled font-avocado">
+                <div class="d-flex justify-content-end p-3">
+                    <button type="button" class="btn btn-lg btn-disabled font-avocado" (click)="onAnswer(opcaoid.value)">
                         Proximo
                     </button>
-                </div> -->
+                </div>
 
             </div>
             <div class="col-lg-2"></div>
