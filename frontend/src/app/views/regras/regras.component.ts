@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./regras.component.css']
 })
 export class RegrasComponent implements OnInit {
-
+  
   constructor() { }
 
   ngOnInit(): void {

@@ -8,17 +8,18 @@ import { QuizService } from 'src/app/quiz.service';
   styleUrls: ['./questioncard.component.css']
 })
 export class QuestioncardComponent implements OnInit {
-  pergunta: Array<any> = new Array();
-  opcao: Array<any> = new Array();
-  control = new FormControl();
+  @Input() public time: number = 30;
+  @Input() public opcaoid: any;
+
+  public pergunta: Array<any> = new Array();
+  public opcao: Array<any> = new Array();
+  public control = new FormControl();
 
   public displayElement = true;
   public respostas = [];
   public currentQuiz = 0;
   public count = 1;
-
-  @Input() public time: number = 30;
-  interval: any;
+  public interval: any;
 
   constructor(private quizService: QuizService) { }
 
@@ -48,12 +49,16 @@ export class QuestioncardComponent implements OnInit {
 
   public timeQuestion(): void {
     this.interval = setInterval(() => {
-      if(this.time > 1) {
+      if (this.time > 1) {
         this.time--;
         console.log(`Tempo: ${this.time}`);
       } else {
+        this.time = 30;
         this.currentQuiz++;
+        if (this.currentQuiz == this.pergunta.length) {
+          window.location.replace("/agradecimento");
+        }
       }
-    },1000)
+    }, 1000)
   }
 }

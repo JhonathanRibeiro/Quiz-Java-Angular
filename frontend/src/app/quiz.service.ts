@@ -1,3 +1,4 @@
+import { UsuarioModel } from './views/login/usuario.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -15,14 +16,15 @@ export class QuizService {
    }
 
   listaPergunta() : Observable<any> {
-    // console.log(`${this.baseUrl}/pergunta/${id}`);
     return this.http.get(`${this.baseUrl}/perguntas`);
   }
   
   listaOpcoes() : Observable<any> {
-    // console.log(`${this.baseUrl}/pergunta/${id}`);
     return this.http.get(`${this.baseUrl}/opcoes`);
   }
 
+  cadastraUsuario(usuario: UsuarioModel): Observable<any> {
+    return this.http.post(`${this.baseUrl}/usuario/`, usuario);
+  }
 
 }

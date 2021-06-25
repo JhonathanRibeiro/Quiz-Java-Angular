@@ -20,7 +20,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@RequestMapping(value = "/api")
+@RequestMapping(value ="/api")
 @Api(value="API REST Quiz App")
 @CrossOrigin(origins="*")
 public class UsuarioResource {

@@ -1,3 +1,4 @@
+import { QuizService } from 'src/app/quiz.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  constructor(api: QuizService) { }
 
   ngOnInit(): void {
+  }
+
+  listar() {
+
+  }
+
+  cadastrar() {
+
+  }
+
+  atualizar() {
+
+  }
+
+  remover() {
+
   }
 
 }
