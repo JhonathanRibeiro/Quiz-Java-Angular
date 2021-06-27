@@ -1,5 +1,5 @@
-import { OpcaoModule } from './../models/opcao/opcao.module';
-import { PerguntaModule } from './../models/pergunta/pergunta.module';
+import { OpcaoModule } from '../models/opcao.module';
+import { PerguntaModule } from '../models/pergunta.module';
 import { UsuarioModel } from './../views/login/usuario.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 export class AdminService {
   public baseUrl: string;
 
-  constructor( private http: HttpClient) {
+  constructor(private http: HttpClient) {
     this.baseUrl = `http://localhost:8080/api`;
    }
    /**

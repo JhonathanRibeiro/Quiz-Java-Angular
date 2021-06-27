@@ -2,6 +2,7 @@ import { UsuarioModel } from './views/login/usuario.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { RespostaModule } from './models/resposta.module';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,10 @@ export class QuizService {
 
   cadastraUsuario(usuario: UsuarioModel): Observable<any> {
     return this.http.post(`${this.baseUrl}/usuario/`, usuario);
+  }
+
+  cadastraResposta(resposta: RespostaModule): Observable<any> {
+    return this.http.post(`${this.baseUrl}/resposta`, resposta);
   }
 
 }

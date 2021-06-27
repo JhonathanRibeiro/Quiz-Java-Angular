@@ -12,11 +12,25 @@
     padding: 32px;
 }
 
-.list-group-item:hover {
-    background: #F8CDCD 0% 0% no-repeat padding-box;
-    box-shadow: 0px 3px 6px #00000029;
-    opacity: 1;
+.bg-hover-success:hover {
+    background: #00D279;
+    opacity: 0.4;
     cursor: pointer;
+    color: #ffff;
+}
+
+.bg-hover-warning:hover {
+    background: #E3C000;
+    opacity: 0.4;
+    cursor: pointer;
+    color: #ffff;
+}
+
+.bg-hover-danger:hover {
+    background: #EF0000;
+    opacity: 0.4;
+    cursor: pointer;
+    color: #ffff;
 }
 
 .card {

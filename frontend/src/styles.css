@@ -13,9 +13,20 @@ body {
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    background-image: url("./assets/img/baloes-background.png")!important;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.bg-balloons-blue {
+    background-image: url("./assets/img/fundo-azul.png")!important;
+}
+
+.bg-balloons-light {
+    background-image: url("./assets/img/baloes-background.png")!important;
+}
+
+.bg-balloons {
+    background-image: url("./assets/img/baloes-coloridos.png")!important;
 }
 
 .mat-radio-outer-circle {

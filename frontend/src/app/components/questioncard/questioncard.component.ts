@@ -1,6 +1,8 @@
+import { RespostaModule } from './../../models/resposta.module';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { QuizService } from 'src/app/quiz.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-questioncard',
@@ -8,43 +10,60 @@ import { QuizService } from 'src/app/quiz.service';
   styleUrls: ['./questioncard.component.css']
 })
 export class QuestioncardComponent implements OnInit {
-  @Input() public time: number = 30;
-  @Input() public opcaoid: any;
+  @Input() public time: number = 0;
+  @Input() public opcaoid: number = 0;
 
   public pergunta: Array<any> = new Array();
   public opcao: Array<any> = new Array();
   public control = new FormControl();
 
+  public resposta: RespostaModule = new RespostaModule();
+
   public displayElement = true;
-  public respostas = [];
   public currentQuiz = 0;
   public count = 1;
   public interval: any;
+  public answer:any;
 
-  constructor(private quizService: QuizService) { }
+  constructor(
+    private quizService: QuizService,
+    private auth: AuthService
+    ) { }
 
   ngOnInit(): void {
     this.listaPerguntas();
-    this.timeQuestion();
+    // this.timeQuestion();
   }
 
   public listaPerguntas() {
     this.quizService.listaPergunta().subscribe(question => {
       this.pergunta = question
+      console.log(this.pergunta)
     }, err => {
       console.log('Não foi possível exibir a pergunta.', err);
     });
   }
 
-  public onAnswer(option: number): void {
+  public onAnswer(): void {
     this.currentQuiz++;
+    this.resposta = {
+      usuario_id: this.auth.getStorage('id'),
+      nome: this.auth.getStorage('nome'),
+      pergunta_id: this.pergunta[this.currentQuiz].id,
+      opcao_id: parseInt(this.answer),
+      tempo_resposta: this.time
+    }
+
+    this.quizService.cadastraResposta(this.resposta).subscribe(res =>{
+      this.resposta = new RespostaModule();
+    });
 
     if (this.currentQuiz >= this.pergunta.length) {
       setTimeout(() => {
         window.location.replace("/agradecimento");
-      }, 1000)
+      }, 500)
     }
-    console.log('Escolha: ', option)
+    console.log('Escolha: ', this.resposta)
   }
 
   public timeQuestion(): void {

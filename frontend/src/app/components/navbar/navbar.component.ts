@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { TimerService } from 'src/app/services/timer.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,12 +7,11 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  @Input() public time: number = 30;
-  @Input() public displayElement: boolean | undefined;
+  visibility = false;
+  time = 0;
+  
+  constructor(timeservice: TimerService) { }
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }

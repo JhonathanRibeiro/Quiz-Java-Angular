@@ -1,3 +1,4 @@
+<app-navbar-question></app-navbar-question>
 <div class="question-container">
     <div class="container">
         <div class="row">
@@ -8,8 +9,7 @@
                     <span class="badge p-2" [ngClass]="{
                         'bg-success': pergunta[currentQuiz].dificuldade === 'facil',
                         'bg-warning': pergunta[currentQuiz].dificuldade === 'media',
-                        'bg-danger': pergunta[currentQuiz].dificuldade  === 'dificil'
-                   }">
+                        'bg-danger': pergunta[currentQuiz].dificuldade  === 'dificil'}">
                         <span class="p-2 m-2 font-avocado h6"> {{currentQuiz+1}} / {{pergunta.length}}</span>
                     </span>
                 </div>
@@ -18,13 +18,16 @@
                     <mat-card-header class="card-header text-light p-4" [ngClass]="{
                         'bg-success': pergunta[currentQuiz].dificuldade === 'facil',
                         'bg-warning': pergunta[currentQuiz].dificuldade === 'media',
-                        'bg-danger': pergunta[currentQuiz].dificuldade  === 'dificil'
-                   }">
+                        'bg-danger': pergunta[currentQuiz].dificuldade  === 'dificil'}">
                         <mat-card-title>{{pergunta[currentQuiz].descricao}}</mat-card-title>
                     </mat-card-header>
                     <mat-card-content>
-                        <mat-radio-group [formControl]="control" aria-labelledby="example-radio-group-label" class="list-group list-group-flush">
-                            <mat-radio-button *ngFor="let opcao of pergunta[currentQuiz].listaOpcoes" class="list-group-item" value="{{opcao.id}}" #opcaoid>
+                        <mat-radio-group [formControl]="control" aria-labelledby="example-radio-group-label" class="list-group list-group-flush" [(ngModel)]="answer">
+                            <mat-radio-button *ngFor="let opcao of pergunta[currentQuiz].listaOpcoes" class="list-group-item" [ngClass]="{
+                                'bg-hover-success': pergunta[currentQuiz].dificuldade === 'facil',
+                                'bg-hover-warning': pergunta[currentQuiz].dificuldade === 'media',
+                                'bg-hover-danger': pergunta[currentQuiz].dificuldade  === 'dificil'
+                           }" value="{{opcao.id}}">
                                 {{opcao.descricao}}
                             </mat-radio-button>
                         </mat-radio-group>
@@ -32,7 +35,7 @@
                 </mat-card>
 
                 <div class="d-flex justify-content-end p-3">
-                    <button type="button" class="btn btn-lg btn-disabled font-avocado" (click)="onAnswer(opcaoid.value)">
+                    <button type="button" class="btn btn-lg btn-disabled font-avocado" (click)="onAnswer()">
                         Proximo
                     </button>
                 </div>
