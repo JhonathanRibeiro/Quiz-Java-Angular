@@ -1,8 +1,29 @@
-<app-navbar-question></app-navbar-question>
+<nav class="navbar navbar-expand-lg navbar-light text-light bg-darkblue">
+    <div class="container-fluid">
+        <div class="container">
+            <span class="navbar-brand text-light text-logo">
+                <span class="font-avocado">QUIZ</span>
+            <img src="./../../../assets/img/icons/logo.png" class="logo" alt="">
+            </span>
+        </div>
+
+        <div class="btn text-light font-avocado pt-2">
+            <span class="timer" id="timer">{{time}}</span><br>
+            <span>tempo</span>
+        </div>
+
+    </div>
+</nav>
+
+
 <div class="question-container">
     <div class="container">
         <div class="row">
-            <div class="col-lg-2"></div>
+            <div class="col-lg-2">
+                <div class="img-animate" id="clock" style="display: none;">
+                    <div class="img-gif-animate"></div>
+                </div>
+            </div>
             <div class="col-lg-8">
 
                 <div class="d-flex justify-content-end p-3">
@@ -41,7 +62,8 @@
                 </div>
 
             </div>
-            <div class="col-lg-2"></div>
+            <div class="col-lg-2">
+            </div>
         </div>
     </div>
 </div>

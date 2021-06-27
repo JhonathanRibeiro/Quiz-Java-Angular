@@ -6,15 +6,5 @@
             <img src="./../../../assets/img/icons/logo.png" class="logo" alt="">
             </span>
         </div>
-
-        <ng-container *ngIf="visibility;else emptyBlock">
-            <div class="btn btn-disabled text-light font-avocado">
-                <span class="timer" id="timer">{{time}}</span><br>
-                <span>tempo</span>
-            </div>
-        </ng-container>
-        <ng-template #emptyBlock>
-        </ng-template>
-
     </div>
 </nav>

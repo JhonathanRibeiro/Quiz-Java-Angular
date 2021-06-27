@@ -8,9 +8,8 @@ import { CommonModule } from '@angular/common';
   ]
 })
 export class RespostaModule {
-    opcao_id?: any;
-    pergunta_id?: any;
-    usuario_id?: any;
-    nome?: string;
+    opcao?: any;
+    pergunta?: any;
+    usuario?: any;
     tempo_resposta?: number;
  }

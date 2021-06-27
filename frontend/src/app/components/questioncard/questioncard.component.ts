@@ -10,8 +10,9 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./questioncard.component.css']
 })
 export class QuestioncardComponent implements OnInit {
-  @Input() public time: number = 0;
   @Input() public opcaoid: number = 0;
+  
+  public time: number = 15;
 
   public pergunta: Array<any> = new Array();
   public opcao: Array<any> = new Array();
@@ -46,11 +47,17 @@ export class QuestioncardComponent implements OnInit {
 
   public onAnswer(): void {
     this.currentQuiz++;
+    
     this.resposta = {
-      usuario_id: this.auth.getStorage('id'),
-      nome: this.auth.getStorage('nome'),
-      pergunta_id: this.pergunta[this.currentQuiz].id,
-      opcao_id: parseInt(this.answer),
+      usuario: {
+        id: this.auth.getStorage('id')
+      },
+      pergunta: {
+        id: this.pergunta[this.currentQuiz].id
+      },
+      opcao: {
+        id: parseInt(this.answer)
+      },
       tempo_resposta: this.time
     }
 
@@ -63,14 +70,17 @@ export class QuestioncardComponent implements OnInit {
         window.location.replace("/agradecimento");
       }, 500)
     }
+
+    this.time = 30;
     console.log('Escolha: ', this.resposta)
   }
 
   public timeQuestion(): void {
     this.interval = setInterval(() => {
+      
       if (this.time > 1) {
         this.time--;
-        console.log(`Tempo: ${this.time}`);
+        // console.log(`Tempo: ${this.time}`);
       } else {
         this.time = 30;
         this.currentQuiz++;
@@ -79,5 +89,12 @@ export class QuestioncardComponent implements OnInit {
         }
       }
     }, 1000)
+
+    if(this.time == 10) {
+      document.querySelector('#timer')?.classList.add('text-danger')
+    } else {
+      document.querySelector('#timer')?.classList.add('text-light')
+    }
+
   }
 }
