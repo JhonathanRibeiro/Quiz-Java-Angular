@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { QuizService } from 'src/app/quiz.service';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { HttpService } from 'src/app/services/http-service.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginComponent {
     private formBuilder: FormBuilder,
     private api: QuizService,
     private router: Router,
-    private auth: AuthService
+    private auth: AuthService,
+    private http: HttpService
     ){ 
       this.formulario = this.formBuilder.group({
         nome: ['', Validators.required],
@@ -41,10 +43,29 @@ export class LoginComponent {
         this.auth.setStorage('nome', user.nome);
         this.auth.setStorage('email', user.email);
 
+        var userdata = {
+          nome: user.nome,
+          email: user.email
+        }
+        this.http.sendEmail("http://localhost:3000/sendmail", userdata).subscribe(
+          data => {
+            let res:any = data; 
+            console.log(
+              `👏 > 👏 > 👏 > 👏 ${user.name} foi registrado com sucesso e o e-mail foi enviado e o id da mensagem é ${res.messageId}`
+            );
+          },
+          err => {
+            return Promise.reject('Não deu boa!').catch(err => {
+              throw new Error(err);
+            });
+          }
+        );
+      
         this.router.navigateByUrl('regras');
       }, err => {
         console.error('Não foi possível cadastrar o usuário', err)
       });
+    
     } 
   }
 }
