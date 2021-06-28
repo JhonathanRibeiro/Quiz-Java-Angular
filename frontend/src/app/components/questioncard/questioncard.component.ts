@@ -16,7 +16,7 @@ export class QuestioncardComponent implements OnInit {
     id: null
   }
   
-  public time: number = 1500;
+  public time: number = 15000;
 
   public pergunta: Array<any> = new Array();
   public opcao: Array<any> = new Array();
