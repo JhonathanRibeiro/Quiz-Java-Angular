@@ -1,26 +1,24 @@
 import { UsuarioModel } from './usuario.model';
-import { CommonModule } from '@angular/common';
-
-import { Component, Input, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { QuizService } from 'src/app/quiz.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
-  @Input() public iduser = 0;
-
+export class LoginComponent {
   public usuario: UsuarioModel = new UsuarioModel();
   public formulario: FormGroup = new FormGroup({});
 
   constructor(
     private formBuilder: FormBuilder,
     private api: QuizService,
-    private router: Router
+    private router: Router,
+    private auth: AuthService
     ){ 
       this.formulario = this.formBuilder.group({
         nome: ['', Validators.required],
@@ -30,10 +28,6 @@ export class LoginComponent implements OnInit {
         ])]
     });
   }
-
-  ngOnInit(): void {
-    console.log(this.usuario);
-  }
   
   public login(): void {
     console.log(JSON.stringify(this.formulario.value))
@@ -42,12 +36,14 @@ export class LoginComponent implements OnInit {
       
       this.api.cadastraUsuario(this.usuario).subscribe(user =>{
         this.usuario = new UsuarioModel();
-        this.iduser = user.id
-        this.router.navigateByUrl('regras');
+        
+        this.auth.setStorage('id', user.id);
+        this.auth.setStorage('nome', user.nome);
+        this.auth.setStorage('email', user.email);
 
-        console.log('id usuario',this.iduser)
+        this.router.navigateByUrl('regras');
       }, err => {
-        console.log('Não foi possível cadastrar o usuário', err)
+        console.error('Não foi possível cadastrar o usuário', err)
       });
     } 
   }

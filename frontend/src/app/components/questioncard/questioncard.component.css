@@ -12,11 +12,25 @@
     padding: 32px;
 }
 
-.list-group-item:hover {
-    background: #F8CDCD 0% 0% no-repeat padding-box;
-    box-shadow: 0px 3px 6px #00000029;
-    opacity: 1;
+.bg-hover-success:hover {
+    background: #00D279;
+    opacity: 0.4;
     cursor: pointer;
+    color: #ffff;
+}
+
+.bg-hover-warning:hover {
+    background: #E3C000;
+    opacity: 0.4;
+    cursor: pointer;
+    color: #ffff;
+}
+
+.bg-hover-danger:hover {
+    background: #EF0000;
+    opacity: 0.4;
+    cursor: pointer;
+    color: #ffff;
 }
 
 .card {
@@ -41,4 +55,51 @@
 
 mat-card {
     padding: 0px!important;
+}
+
+.bg-darkblue {
+    background: #002A70!important;
+    border: none!important;
+}
+
+.text-logo {
+    text-align: left;
+    font: normal normal normal 30px/2px Hello Avocado;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    text-shadow: 0px 3px 6px #00000029;
+    opacity: 1;
+}
+
+.timer {
+    font: normal normal normal 30px/2px Hello Avocado;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    text-shadow: 0px 3px 6px #00000059;
+    opacity: 1;
+}
+
+.logo {
+    width: 44px;
+    height: 35px;
+}
+
+.img-animate {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    height: 100%;
+}
+
+.img-gif-animate {
+    width: 300px;
+    height: 160px;
+    background-image: url('../../../assets/img/icons/emoji.png')!important;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 9999;
+}
+
+.d-block {
+    display: block!important;
 }

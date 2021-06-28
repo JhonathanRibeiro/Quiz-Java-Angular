@@ -9,7 +9,8 @@ import { RankingComponent } from './views/ranking/ranking.component';
 import { RegrasComponent } from './views/regras/regras.component';
 
 const routes: Routes = [
-  { path:'', component: LoginComponent },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  
   { path:'login', component: LoginComponent },
   { path:'apresentacao', component: ApresentacaoComponent },
   { path: 'regras', component: RegrasComponent },
@@ -17,8 +18,7 @@ const routes: Routes = [
   { path:'quiz', component: QuestioncardComponent },
   { path:'agradecimento', component: AgradecimentoComponent },
   { path:'ranking', component: RankingComponent },
-  { path:'admin', component: AdminComponent }
-
+  
 ];
 
 

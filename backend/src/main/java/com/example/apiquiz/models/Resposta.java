@@ -31,9 +31,19 @@ public class Resposta implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name = "usuario_id")
-	private Pergunta usuario_id;
+	private Usuario usuario_id;
 	
 	private BigDecimal tempo_resposta;
+
+	private String nome;
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
 	public long getId() {
 		return id;
@@ -59,11 +69,11 @@ public class Resposta implements Serializable{
 		this.pergunta_id = pergunta_id;
 	}
 
-	public Pergunta getUsuario_id() {
+	public Usuario getUsuario_id() {
 		return usuario_id;
 	}
 
-	public void setUsuario_id(Pergunta usuario_id) {
+	public void setUsuario_id(Usuario usuario_id) {
 		this.usuario_id = usuario_id;
 	}
 

@@ -1,0 +1,19 @@
+.text-darkblue {
+    line-height: 48px!important;
+    font-size: 40px!important;
+    color: #002A70!important;
+    border: none!important;
+}
+
+.text-logo {
+    text-align: left;
+    font: normal normal normal 30px/2px Hello Avocado;
+    color: #FFFFFF;
+    text-shadow: 0px 3px 6px #00000029;
+    opacity: 1;
+}
+
+.logo {
+    width: 44px;
+    height: 35px;
+}

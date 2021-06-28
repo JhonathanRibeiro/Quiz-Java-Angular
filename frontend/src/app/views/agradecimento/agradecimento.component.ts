@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { AuthService } from './../../services/auth.service';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-agradecimento',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./agradecimento.component.css']
 })
 export class AgradecimentoComponent implements OnInit {
+  @Input() public nome: string = '';
 
-  constructor() { }
+  constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
+    this.nome = this.auth.getStorage('nome');
   }
 
 }

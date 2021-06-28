@@ -13,9 +13,21 @@ body {
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    background-image: url("./assets/img/baloes-background.png")!important;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.bg-balloons-blue {
+    height: 100%;
+    background-image: url("./assets/img/fundo-azul.png")!important;
+}
+
+.bg-balloons-light {
+    background-image: url("./assets/img/baloes-background.png")!important;
+}
+
+.bg-balloons {
+    background-image: url("./assets/img/baloes-coloridos.png")!important;
 }
 
 .mat-radio-outer-circle {
@@ -34,6 +46,27 @@ body {
     background-color: #EF0000!important;
 }
 
+.bg-green {
+    background: #5AC498!important;
+    border: none;
+}
+
+.bg-blue-light {
+    background: #59A4D9!important;
+}
+
+.box-shadow {
+    box-shadow: -2px 6px 7px 0px #3333;
+}
+
+.bolder {
+    font-weight: 500!important;
+}
+
+.text-size-2 {
+    font-size: 20px;
+}
+
 .font-avocado {
     font-family: HelloAvocado!important;
 }
@@ -46,6 +79,10 @@ body {
     background-image: url("./assets/img/baloes-background.png");
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.text-darkblue {
+    color: #002A70!important;
 }
 
 .w-100 {

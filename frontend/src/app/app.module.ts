@@ -21,6 +21,9 @@ import { AdminComponent } from './views/admin/admin.component';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCardModule} from '@angular/material/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AccountComponent } from './views/admin/account/shared/account/account.component';
+import { NavbarRankingComponent } from './components/navbar-ranking/navbar-ranking.component';
+import { NavbarQuestionComponent } from './components/navbar-question/navbar-question.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AgradecimentoComponent,
     RankingComponent,
     ApresentacaoComponent,
-    AdminComponent
+    AdminComponent,
+    AccountComponent,
+    NavbarRankingComponent,
+    NavbarQuestionComponent,
   ],
   imports: [
     BrowserModule,

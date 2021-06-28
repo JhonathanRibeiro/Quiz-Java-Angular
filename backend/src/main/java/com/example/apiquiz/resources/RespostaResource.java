@@ -2,6 +2,8 @@ package com.example.apiquiz.resources;
 
 import java.util.List;
 
+import javax.persistence.Query;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.apiquiz.models.Resposta;
+// import com.example.apiquiz.repository.RankingRepository;
 import com.example.apiquiz.repository.RespostaRepository;
 
 import io.swagger.annotations.Api;
@@ -22,6 +25,9 @@ import io.swagger.annotations.ApiOperation;
 @Api(value="API REST Quiz App")
 @CrossOrigin(origins="*")
 public class RespostaResource {
+	
+	// @Autowired
+	// RankingRepository rankingRepository;
 	
 	@Autowired
 	RespostaRepository respostaRepository;
@@ -43,4 +49,11 @@ public class RespostaResource {
 	public Resposta salvaResposta(@RequestBody Resposta resposta) {
 		return respostaRepository.save(resposta);
 	}
+
+	// @GetMapping("/ranking")
+	// @ApiOperation(value="Retorna um lista com o ranking")
+	// public List<Resposta> rankingList(){
+	// 	return rankingRepository.findByRanking();
+	// }
+
 }

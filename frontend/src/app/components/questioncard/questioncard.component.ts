@@ -1,6 +1,8 @@
+import { RespostaModule } from './../../models/resposta.module';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { QuizService } from 'src/app/quiz.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-questioncard',
@@ -8,20 +10,30 @@ import { QuizService } from 'src/app/quiz.service';
   styleUrls: ['./questioncard.component.css']
 })
 export class QuestioncardComponent implements OnInit {
-  @Input() public time: number = 30;
-  @Input() public opcaoid: any;
+  @Input() public opcaoid: number = 0;
+
+  public obj_opcao = {
+    id: null
+  }
+  
+  public time: number = 15;
 
   public pergunta: Array<any> = new Array();
   public opcao: Array<any> = new Array();
   public control = new FormControl();
 
+  public resposta: RespostaModule = new RespostaModule();
+
   public displayElement = true;
-  public respostas = [];
   public currentQuiz = 0;
   public count = 1;
   public interval: any;
+  public answer:any;
 
-  constructor(private quizService: QuizService) { }
+  constructor(
+    private quizService: QuizService,
+    private auth: AuthService
+    ) { }
 
   ngOnInit(): void {
     this.listaPerguntas();
@@ -31,34 +43,76 @@ export class QuestioncardComponent implements OnInit {
   public listaPerguntas() {
     this.quizService.listaPergunta().subscribe(question => {
       this.pergunta = question
+      console.log(`Perguntas: ${this.pergunta}`)
     }, err => {
       console.log('Não foi possível exibir a pergunta.', err);
     });
   }
 
-  public onAnswer(option: number): void {
-    this.currentQuiz++;
+  public onAnswer(): void {   
+    console.log(`Perguntas onAnswer: ${this.pergunta}`)
 
+    this.resposta = {
+      opcao_id: {
+        id: parseInt(this.answer)
+      },
+      pergunta_id: {
+        id: this.pergunta[this.currentQuiz].id
+      },
+      usuario_id: {
+        id: this.auth.getStorage('id')
+      },
+      tempo_resposta: this.time
+    }
+    
+    if(this.answer == undefined) {
+      this.resposta.opcao_id = null;
+    } 
+
+    this.quizService.cadastraResposta(this.resposta).subscribe(res =>{
+      this.resposta = new RespostaModule();
+    });
+    
+    this.currentQuiz++;
+    
     if (this.currentQuiz >= this.pergunta.length) {
       setTimeout(() => {
         window.location.replace("/agradecimento");
-      }, 1000)
+      }, 500)
     }
-    console.log('Escolha: ', option)
+
+    this.time = 30;
+
+    console.log('Escolha: ', this.resposta)
   }
 
   public timeQuestion(): void {
     this.interval = setInterval(() => {
+      
       if (this.time > 1) {
         this.time--;
-        console.log(`Tempo: ${this.time}`);
+        // console.log(`Tempo: ${this.time}`);
       } else {
+        
+        if(this.time == 1) {
+          this.onAnswer();
+        } else {
+          this.currentQuiz++;
+        }
+
         this.time = 30;
-        this.currentQuiz++;
+
         if (this.currentQuiz == this.pergunta.length) {
           window.location.replace("/agradecimento");
         }
       }
     }, 1000)
+
+    if(this.time == 10) {
+      document.querySelector('#timer')?.classList.add('text-danger')
+    } else {
+      document.querySelector('#timer')?.classList.add('text-light')
+    }
+
   }
 }
