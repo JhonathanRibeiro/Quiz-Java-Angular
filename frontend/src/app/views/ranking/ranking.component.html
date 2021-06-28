@@ -1,6 +1,75 @@
 <app-navbar-ranking></app-navbar-ranking>
-<div class="container">
-    <div class="row text-center pt-4">
-        <h2 class="font-avocado title">Ranking</h2>
+<div class="bg-balloons-blue">
+    <div class="container">
+        <div class="row text-center p-5">
+            <h2 class="font-avocado title text-light">Ranking</h2>
+        </div>
+        <!-- end title -->
+        <div class="row text-center first-placed" *ngFor="let player of ranking">
+            <div class="col-4 p-0 m-0">
+                <ul class="list-group">
+                    <li class="list-group-item active p-3 mt-4 bg-blue-light box-shadow border-0">
+                        <strong class="h5">Jhonathan Ribeiro</strong>
+                    </li>
+                    <li class="list-group-item border-bottom-0 p-4 pb-4">
+                        <img src="./../../../assets/img/icons/estrela 2.png" alt="">
+                    </li>
+                    <li class="list-group-item">
+                        <span class="text-darkblue h6">
+                            <strong class="h5">82 pontos</strong>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-4 p-0 m-0">
+                <ul class="list-group">
+                    <li class="list-group-item active p-4 bg-blue-light box-shadow border-0">
+                        <strong class="h5">Tânia Mara Tartari</strong>
+                    </li>
+                    <li class="list-group-item border-bottom-0 p-4 pb-3">
+                        <img src="./../../../assets/img/icons/estrela 1.png" alt="">
+                    </li>
+                    <li class="list-group-item">
+                        <span class="text-darkblue h6">
+                            <strong class="h5">87 pontos</strong>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-4 p-0 m-0">
+                <ul class="list-group">
+                    <li class="list-group-item active p-3 mt-5 bg-blue-light box-shadow border-0">
+                        <strong class="h5">Grasieli Lara</strong>
+                    </li>
+                    <li class="list-group-item border-bottom-0 p-4 pb-3">
+                        <img src="./../../../assets/img/icons/estrela 3.png" alt="">
+                    </li>
+                    <li class="list-group-item">
+                        <span class="text-darkblue h6">
+                            <strong class="h5">77 pontos</strong>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- end primeiros colocados -->
+        <div class="row">
+            <div class="col-8 p-0 m-0">
+                <ul class="list-group">
+                    <li class="list-group-item active ranking-second rounded-left border-right-0 p-3 h6 mb-0 pb-3 bg-green">Colocações</li>
+                    <li class="list-group-item border-left-0">4º Ingryd Thaiany Ravanelli Galon</li>
+                    <li class="list-group-item border-left-0">5º Eduardo Bastian</li>
+                    <li class="list-group-item border-left-0">6º Ana Reolon</li>
+                </ul>
+            </div>
+            <div class="col-4 p-0 m-0">
+                <ul class="list-group">
+                    <li class="list-group-item active ranking-second border-left-radius-0 p-3 h6 mb-0 pb-3 bg-green">Pontuação</li>
+                    <li class="list-group-item border-right-0 bg-green text-light bolder text-size-2">85</li>
+                    <li class="list-group-item border-right-0 bg-green text-light bolder text-size-2">80</li>
+                    <li class="list-group-item border-right-0 bg-green text-light bolder text-size-2">75</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>

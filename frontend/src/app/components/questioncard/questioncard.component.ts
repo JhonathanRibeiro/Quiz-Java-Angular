@@ -11,6 +11,10 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class QuestioncardComponent implements OnInit {
   @Input() public opcaoid: number = 0;
+
+  public obj_opcao = {
+    id: null
+  }
   
   public time: number = 15;
 
@@ -33,38 +37,44 @@ export class QuestioncardComponent implements OnInit {
 
   ngOnInit(): void {
     this.listaPerguntas();
-    // this.timeQuestion();
+    this.timeQuestion();
   }
 
   public listaPerguntas() {
     this.quizService.listaPergunta().subscribe(question => {
       this.pergunta = question
-      console.log(this.pergunta)
+      console.log(`Perguntas: ${this.pergunta}`)
     }, err => {
       console.log('Não foi possível exibir a pergunta.', err);
     });
   }
 
-  public onAnswer(): void {
-    this.currentQuiz++;
-    
+  public onAnswer(): void {   
+    console.log(`Perguntas onAnswer: ${this.pergunta}`)
+
     this.resposta = {
-      usuario: {
-        id: this.auth.getStorage('id')
+      opcao_id: {
+        id: parseInt(this.answer)
       },
-      pergunta: {
+      pergunta_id: {
         id: this.pergunta[this.currentQuiz].id
       },
-      opcao: {
-        id: parseInt(this.answer)
+      usuario_id: {
+        id: this.auth.getStorage('id')
       },
       tempo_resposta: this.time
     }
+    
+    if(this.answer == undefined) {
+      this.resposta.opcao_id = null;
+    } 
 
     this.quizService.cadastraResposta(this.resposta).subscribe(res =>{
       this.resposta = new RespostaModule();
     });
-
+    
+    this.currentQuiz++;
+    
     if (this.currentQuiz >= this.pergunta.length) {
       setTimeout(() => {
         window.location.replace("/agradecimento");
@@ -72,6 +82,7 @@ export class QuestioncardComponent implements OnInit {
     }
 
     this.time = 30;
+
     console.log('Escolha: ', this.resposta)
   }
 
@@ -82,8 +93,15 @@ export class QuestioncardComponent implements OnInit {
         this.time--;
         // console.log(`Tempo: ${this.time}`);
       } else {
+        
+        if(this.time == 1) {
+          this.onAnswer();
+        } else {
+          this.currentQuiz++;
+        }
+
         this.time = 30;
-        this.currentQuiz++;
+
         if (this.currentQuiz == this.pergunta.length) {
           window.location.replace("/agradecimento");
         }
