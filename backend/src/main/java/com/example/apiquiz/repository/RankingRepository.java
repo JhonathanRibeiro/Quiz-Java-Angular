@@ -4,8 +4,6 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-
-import com.example.apiquiz.models.Resposta;
 import com.example.apiquiz.models.Ranking;
 
 public interface RankingRepository extends JpaRepository<Ranking, Long> {
