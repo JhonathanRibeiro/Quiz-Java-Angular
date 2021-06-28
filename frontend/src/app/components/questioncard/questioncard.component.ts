@@ -96,7 +96,6 @@ export class QuestioncardComponent implements OnInit {
 
       if (this.time > 1) {
         this.time--;
-        // console.log(`Tempo: ${this.time}`);
       } else {
         
         if(this.time == 1) {
@@ -115,6 +114,5 @@ export class QuestioncardComponent implements OnInit {
         }
       }
     }, 1000)
-
   }
 }
