@@ -16,7 +16,7 @@ export class QuestioncardComponent implements OnInit {
     id: null
   }
   
-  public time: number = 15;
+  public time: number = 1500;
 
   public pergunta: Array<any> = new Array();
   public opcao: Array<any> = new Array();
@@ -89,6 +89,11 @@ export class QuestioncardComponent implements OnInit {
   public timeQuestion(): void {
     this.interval = setInterval(() => {
       
+      if(this.time <=  11) {
+        document.querySelector('#timer')?.classList.add('text-danger')
+        document.querySelector('#clock')?.classList.add('display-block')
+      }
+
       if (this.time > 1) {
         this.time--;
         // console.log(`Tempo: ${this.time}`);
@@ -100,6 +105,9 @@ export class QuestioncardComponent implements OnInit {
           this.currentQuiz++;
         }
 
+        document.querySelector('#timer')?.classList.remove('text-danger')
+        document.querySelector('#clock')?.classList.remove('display-block')
+
         this.time = 30;
 
         if (this.currentQuiz == this.pergunta.length) {
@@ -107,12 +115,6 @@ export class QuestioncardComponent implements OnInit {
         }
       }
     }, 1000)
-
-    if(this.time == 10) {
-      document.querySelector('#timer')?.classList.add('text-danger')
-    } else {
-      document.querySelector('#timer')?.classList.add('text-light')
-    }
 
   }
 }

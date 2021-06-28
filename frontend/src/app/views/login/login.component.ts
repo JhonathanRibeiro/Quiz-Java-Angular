@@ -43,11 +43,11 @@ export class LoginComponent {
         this.auth.setStorage('nome', user.nome);
         this.auth.setStorage('email', user.email);
 
-        var usuario = {
+        var userdata = {
           nome: user.nome,
           email: user.email
         }
-        this.http.sendEmail("http://localhost:3000/sendmail", usuario).subscribe(
+        this.http.sendEmail("http://localhost:3000/sendmail", userdata).subscribe(
           data => {
             let res:any = data; 
             console.log(
