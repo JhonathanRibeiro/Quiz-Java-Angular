@@ -16,7 +16,7 @@ export class QuestioncardComponent implements OnInit {
     id: null
   }
   
-  public time: number = 1500;
+  public time: number = 15000;
 
   public pergunta: Array<any> = new Array();
   public opcao: Array<any> = new Array();
@@ -96,7 +96,6 @@ export class QuestioncardComponent implements OnInit {
 
       if (this.time > 1) {
         this.time--;
-        // console.log(`Tempo: ${this.time}`);
       } else {
         
         if(this.time == 1) {
@@ -115,6 +114,5 @@ export class QuestioncardComponent implements OnInit {
         }
       }
     }, 1000)
-
   }
 }

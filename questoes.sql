@@ -1,0 +1,195 @@
+(1,'Qual o nome do presidente do Brasil que ficou conhecido como Jango?', 'facil'),
+(2,'Qual o nome do presidente do Brasil que ficou conhecido como Jango?', 'facil'),
+(3,'Qual o nome do presidente do Brasil que ficou conhecido como Jango?', 'facil'),
+(4,'Qual o nome do presidente do Brasil que ficou conhecido como Jango?', 'facil'),
+(5,'Qual o nome do presidente do Brasil que ficou conhecido como Jango?', 'facil'),
+(6,'Qual o nome do presidente do Brasil que ficou conhecido como Jango?', 'facil'),
+(7,'Qual o nome do presidente do Brasil que ficou conhecido como Jango?', 'facil'),
+(8,'Qual o nome do presidente do Brasil que ficou conhecido como Jango?', 'facil'),
+(9,'Qual o nome do presidente do Brasil que ficou conhecido como Jango?', 'facil'),
+(10,'Qual o nome do presidente do Brasil que ficou conhecido como Jango?', 'facil'),
+
+(11,'Qual o nome do presidente do Brasil que ficou conhecido como Jango?', 'media'),
+(12,'Qual o nome do presidente do Brasil que ficou conhecido como Jango?', 'media'),
+(13,'Qual o nome do presidente do Brasil que ficou conhecido como Jango?', 'media'),
+(14,'Qual o nome do presidente do Brasil que ficou conhecido como Jango?', 'media'),
+(15,'Qual o nome do presidente do Brasil que ficou conhecido como Jango?', 'media'),
+(15,'Qual o nome do presidente do Brasil que ficou conhecido como Jango?', 'media'),
+(16,'Qual o nome do presidente do Brasil que ficou conhecido como Jango?', 'media'),
+(17,'Qual o nome do presidente do Brasil que ficou conhecido como Jango?', 'media'),
+(18,'Qual o nome do presidente do Brasil que ficou conhecido como Jango?', 'media'),
+(19,'Qual o nome do presidente do Brasil que ficou conhecido como Jango?', 'media'),
+
+(20,'Qual o nome do presidente do Brasil que ficou conhecido como Jango?', 'dificil'),
+(21,'Qual o nome do presidente do Brasil que ficou conhecido como Jango?', 'dificil'),
+(22,'Qual o nome do presidente do Brasil que ficou conhecido como Jango?', 'dificil'),
+(23,'Qual o nome do presidente do Brasil que ficou conhecido como Jango?', 'dificil'),
+(25,'Qual o nome do presidente do Brasil que ficou conhecido como Jango?', 'dificil'),
+(26,'Qual o nome do presidente do Brasil que ficou conhecido como Jango?', 'dificil'),
+(27,'Qual o nome do presidente do Brasil que ficou conhecido como Jango?', 'dificil'),
+(28,'Qual o nome do presidente do Brasil que ficou conhecido como Jango?', 'dificil'),
+(29,'Qual o nome do presidente do Brasil que ficou conhecido como Jango?', 'dificil'),
+(30,'Qual o nome do presidente do Brasil que ficou conhecido como Jango?', 'dificil')
+
+
+insert into opcao (id,descricao,opcao_correta,score,pergunta_id)
+values 
+(1,'Jânio Quadros','NAO',1,1),
+(2,'Jacinto Anjos','NAO',1,1),
+(3,'Getúlio Vargas','NAO',1,1),
+(4,'João Goulart','SIM',1,1),
+
+(5,'Jânio Quadros','NAO',1,2),
+(6,'Jacinto Anjos','NAO',1,2),
+(7,'Getúlio Vargas','NAO',1,2),
+(8,'João Goulart','SIM',1,2),
+
+(9,'Jânio Quadros','NAO',1,3),
+(10,'Jacinto Anjos','NAO',1,3),
+(11,'Getúlio Vargas','NAO',1,3),
+(12,'João Goulart','SIM',1,3),
+
+(13,'Jânio Quadros','NAO',1,4),
+(14,'Jacinto Anjos','NAO',1,4),
+(15,'Getúlio Vargas','NAO',1,4),
+(16,'João Goulart','SIM',1,4),
+
+(17,'Jânio Quadros','NAO',1,5),
+(18,'Jacinto Anjos','NAO',1,5),
+(19,'Getúlio Vargas','NAO',1,5),
+(20,'João Goulart','SIM',1,5),
+
+(21,'Jânio Quadros','NAO',1,6),
+(22,'Jacinto Anjos','NAO',1,6),
+(23,'Getúlio Vargas','NAO',1,6),
+(24,'João Goulart','SIM',1,6),
+
+(25,'Jânio Quadros','NAO',1,7),
+(26,'Jacinto Anjos','NAO',1,7),
+(27,'Getúlio Vargas','NAO',1,7),
+(28,'João Goulart','SIM',1,7),
+
+(29,'Jânio Quadros','NAO',1,8),
+(30,'Jacinto Anjos','NAO',1,8),
+(31,'Getúlio Vargas','NAO',1,8),
+(32,'João Goulart','SIM',1,8),
+
+(33,'Jânio Quadros','NAO',1,9),
+(34,'Jacinto Anjos','NAO',1,9),
+(35,'Getúlio Vargas','NAO',1,9),
+(36,'João Goulart','SIM',1,9),
+
+(37,'Jânio Quadros','NAO',1,10),
+(38,'Jacinto Anjos','NAO',1,10),
+(39,'Getúlio Vargas','NAO',1,10),
+(40,'João Goulart','SIM',1,10),
+
+(41,'Jânio Quadros','NAO',1,11),
+(42,'Jacinto Anjos','NAO',1,11),
+(43,'Getúlio Vargas','NAO',1,11),
+(44,'João Goulart','SIM',1,11),
+
+(45,'Jânio Quadros','NAO',1,12),
+(46,'Jacinto Anjos','NAO',1,12),
+(47,'Getúlio Vargas','NAO',1,12),
+(48,'João Goulart','SIM',1,12),
+
+(49,'Jânio Quadros','NAO',1,13),
+(50,'Jacinto Anjos','NAO',1,13),
+(51,'Getúlio Vargas','NAO',1,13),
+(52,'João Goulart','SIM',1,13),
+
+(53,'Jânio Quadros','NAO',1,14),
+(54,'Jacinto Anjos','NAO',1,14),
+(55,'Getúlio Vargas','NAO',1,14),
+(56,'João Goulart','SIM',1,14),
+
+(57,'Jânio Quadros','NAO',1,15),
+(58,'Jacinto Anjos','NAO',1,15),
+(59,'Getúlio Vargas','NAO',1,15),
+(60,'João Goulart','SIM',1,15),
+
+(61,'Jânio Quadros','NAO',1,16),
+(62,'Jacinto Anjos','NAO',1,16),
+(63,'Getúlio Vargas','NAO',1,16),
+(64,'João Goulart','SIM',1,16),
+
+(65,'Jânio Quadros','NAO',1,17),
+(66,'Jacinto Anjos','NAO',1,17),
+(67,'Getúlio Vargas','NAO',1,17),
+(68,'João Goulart','SIM',1,17),
+
+(69,'Jânio Quadros','NAO',1,18),
+(70,'Jacinto Anjos','NAO',1,18),
+(71,'Getúlio Vargas','NAO',1,18),
+(72,'João Goulart','SIM',1,18),
+
+(73,'Jânio Quadros','NAO',1,19),
+(74,'Jacinto Anjos','NAO',1,19),
+(75,'Getúlio Vargas','NAO',1,19),
+(76,'João Goulart','SIM',1,19),
+
+(77,'Jânio Quadros','NAO',1,18),
+(78,'Jacinto Anjos','NAO',1,18),
+(79,'Getúlio Vargas','NAO',1,18),
+(80,'João Goulart','SIM',1,18),
+
+(81,'Jânio Quadros','NAO',1,19),
+(82,'Jacinto Anjos','NAO',1,19),
+(83,'Getúlio Vargas','NAO',1,19),
+(84,'João Goulart','SIM',1,19),
+
+(85,'Jânio Quadros','NAO',1,20),
+(86,'Jacinto Anjos','NAO',1,20),
+(87,'Getúlio Vargas','NAO',1,20),
+(88,'João Goulart','SIM',1,20),
+
+(89,'Jânio Quadros','NAO',1,21),
+(90,'Jacinto Anjos','NAO',1,21),
+(91,'Getúlio Vargas','NAO',1,21),
+(92,'João Goulart','SIM',1,21),
+
+(93,'Jânio Quadros','NAO',1,22),
+(94,'Jacinto Anjos','NAO',1,22),
+(95,'Getúlio Vargas','NAO',1,22),
+(96,'João Goulart','SIM',1,22),
+
+(97,'Jânio Quadros','NAO',1,23),
+(98,'Jacinto Anjos','NAO',1,23),
+(99,'Getúlio Vargas','NAO',1,23),
+(100,'João Goulart','SIM',1,23),
+
+(101,'Jânio Quadros','NAO',1,24),
+(102,'Jacinto Anjos','NAO',1,24),
+(103,'Getúlio Vargas','NAO',1,24),
+(104,'João Goulart','SIM',1,24),
+
+(105,'Jânio Quadros','NAO',1,25),
+(106,'Jacinto Anjos','NAO',1,25),
+(107,'Getúlio Vargas','NAO',1,25),
+(108,'João Goulart','SIM',1,25),
+
+(109,'Jânio Quadros','NAO',1,26),
+(110,'Jacinto Anjos','NAO',1,26),
+(111,'Getúlio Vargas','NAO',1,26),
+(112,'João Goulart','SIM',1,26),
+
+(113,'Jânio Quadros','NAO',1,27),
+(114,'Jacinto Anjos','NAO',1,27),
+(115,'Getúlio Vargas','NAO',1,27),
+(116,'João Goulart','SIM',1,27),
+
+(117,'Jânio Quadros','NAO',1,28),
+(118,'Jacinto Anjos','NAO',1,28),
+(119,'Getúlio Vargas','NAO',1,28),
+(120,'João Goulart','SIM',1,28),
+
+(121,'Jânio Quadros','NAO',1,29),
+(122,'Jacinto Anjos','NAO',1,29),
+(123,'Getúlio Vargas','NAO',1,29),
+(124,'João Goulart','SIM',1,29),
+
+(125,'Jânio Quadros','NAO',1,30),
+(126,'Jacinto Anjos','NAO',1,30),
+(127,'Getúlio Vargas','NAO',1,30),
+(128,'João Goulart','SIM',1,30),
