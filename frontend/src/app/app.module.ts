@@ -24,6 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccountComponent } from './views/admin/account/shared/account/account.component';
 import { NavbarRankingComponent } from './components/navbar-ranking/navbar-ranking.component';
 import { NavbarQuestionComponent } from './components/navbar-question/navbar-question.component';
+import { LoginAdminComponent } from './views/admin/account/login-admin/login-admin.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { NavbarQuestionComponent } from './components/navbar-question/navbar-que
     AccountComponent,
     NavbarRankingComponent,
     NavbarQuestionComponent,
+    LoginAdminComponent,
   ],
   imports: [
     BrowserModule,
