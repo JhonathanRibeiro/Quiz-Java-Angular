@@ -1,0 +1,13 @@
+form {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 35px;
+}
+
+.align-top {
+    position: relative;
+    transform: translateY(50%);
+}

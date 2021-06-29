@@ -2,7 +2,6 @@ import { UsuarioModel } from './usuario.model';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { QuizService } from 'src/app/quiz.service';
-import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpService } from 'src/app/services/http-service.service';
 
@@ -32,7 +31,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
   
   public login(): void {
     console.log(JSON.stringify(this.formulario.value))
