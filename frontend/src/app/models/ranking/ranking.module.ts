@@ -12,3 +12,4 @@ export class RankingModule {
   nome?: String;
   pontos?: Number;
 }
+

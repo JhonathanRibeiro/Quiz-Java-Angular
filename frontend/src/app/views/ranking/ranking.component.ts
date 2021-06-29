@@ -17,10 +17,20 @@ export class RankingComponent implements OnInit {
   }
 
   public listaRanking(): void {
-    this.api.listaPergunta().subscribe(data => {
-      this.ranking = data
-      
-      console.log(`Perguntas: ${data}`)
+    this.api.listaRanking().subscribe(data => {
+      var classificao = data
+     
+    function retornaVencedores (value: any){
+        if (value.posicao >= 1 || value.posicao <= 5)
+        return value;
+    }
+
+    var vencedores = classificao.filter(retornaVencedores);
+    vencedores.forEach((res:any) => { 
+        console.log(`Resultado: ${JSON.stringify(res)}`);
+    })
+
+      console.log(`Lista de ranking2: ${JSON.stringify(this.ranking)}`)
     }, err => {
       console.log('Não foi possível exibir o ranking.', err);
     });

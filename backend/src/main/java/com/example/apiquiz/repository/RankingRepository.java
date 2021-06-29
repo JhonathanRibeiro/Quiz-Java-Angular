@@ -11,7 +11,7 @@ import com.example.apiquiz.models.Resposta;
 
 @Repository
 public interface RankingRepository extends CrudRepository<Resposta, Long>{
-	@Query(value = "DENSE_RANK() OVER (partition BY 0) as posicao, u.nome,"+
+	@Query(value = "select distinct DENSE_RANK() OVER (partition BY 0) as posicao, u.nome,"+
 			   "(select coalesce(sum(op_subsql.score), 0) "+
 				"from "+
 			    "resposta r2 "+
