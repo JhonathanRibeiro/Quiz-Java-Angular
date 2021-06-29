@@ -5,11 +5,11 @@
             <h2 class="font-avocado title text-light">Ranking</h2>
         </div>
         <!-- end title -->
-        <div class="row text-center first-placed" *ngFor="let player of ranking">
+        <div class="row text-center first-placed" *ngFor="let data of ranking">
             <div class="col-4 p-0 m-0">
                 <ul class="list-group">
                     <li class="list-group-item active p-3 mt-4 bg-blue-light box-shadow border-0">
-                        <strong class="h5">Jhonathan Ribeiro</strong>
+                        <strong class="h5">{{data.nome}}</strong>
                     </li>
                     <li class="list-group-item border-bottom-0 p-4 pb-4">
                         <img src="./../../../assets/img/icons/estrela 2.png" alt="">

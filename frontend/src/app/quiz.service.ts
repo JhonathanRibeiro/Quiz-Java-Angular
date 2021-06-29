@@ -28,6 +28,10 @@ export class QuizService {
     return this.http.get(`${this.baseUrl}/usuarios`);
   }
 
+  listaRanking() : Observable<any> {
+    return this.http.get(`${this.baseUrl}/ranking`);
+  }
+
   cadastraUsuario(usuario: UsuarioModel): Observable<any> {
     return this.http.post(`${this.baseUrl}/usuario/`, usuario);
   }
