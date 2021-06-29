@@ -13,6 +13,7 @@ export class AgradecimentoComponent implements OnInit {
 
   ngOnInit(): void {
     this.nome = this.auth.getStorage('nome');
+    window.history.forward()
   }
 
 }
