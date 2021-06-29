@@ -15,8 +15,8 @@ export class QuestioncardComponent implements OnInit {
   public obj_opcao = {
     id: null
   }
-  
-  public time: number = 15000;
+
+  public time: number = 15;
 
   public pergunta: Array<any> = new Array();
   public opcao: Array<any> = new Array();
@@ -28,12 +28,12 @@ export class QuestioncardComponent implements OnInit {
   public currentQuiz = 0;
   public count = 1;
   public interval: any;
-  public answer:any;
+  public answer: any;
 
   constructor(
     private quizService: QuizService,
     private auth: AuthService
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.listaPerguntas();
@@ -49,7 +49,7 @@ export class QuestioncardComponent implements OnInit {
     });
   }
 
-  public onAnswer(): void {   
+  public onAnswer(): void {
     console.log(`Perguntas onAnswer: ${this.pergunta}`)
 
     this.resposta = {
@@ -64,17 +64,17 @@ export class QuestioncardComponent implements OnInit {
       },
       tempo_resposta: this.time
     }
-    
-    if(this.answer == undefined) {
+    //se a escolha dor indefinido(caso o usuário nao seleciona nenhuma) a opção é salva como null
+    if (this.answer == undefined) {
       this.resposta.opcao_id = null;
-    } 
-
-    this.quizService.cadastraResposta(this.resposta).subscribe(res =>{
+    }
+    //registrando a resposta
+    this.quizService.cadastraResposta(this.resposta).subscribe(res => {
       this.resposta = new RespostaModule();
     });
-    
+
     this.currentQuiz++;
-    
+    //se a qtde de questoes for maior do que a qtde de perguntas irá redirecionar para a tela de agradecimento
     if (this.currentQuiz >= this.pergunta.length) {
       setTimeout(() => {
         window.location.replace("/agradecimento");
@@ -88,8 +88,8 @@ export class QuestioncardComponent implements OnInit {
 
   public timeQuestion(): void {
     this.interval = setInterval(() => {
-      
-      if(this.time <=  11) {
+
+      if (this.time <= 11) {
         document.querySelector('#timer')?.classList.add('text-danger')
         document.querySelector('#clock')?.classList.add('display-block')
       }
@@ -97,8 +97,8 @@ export class QuestioncardComponent implements OnInit {
       if (this.time > 1) {
         this.time--;
       } else {
-        
-        if(this.time == 1) {
+
+        if (this.time == 1) {
           this.onAnswer();
         } else {
           this.currentQuiz++;
@@ -115,4 +115,5 @@ export class QuestioncardComponent implements OnInit {
       }
     }, 1000)
   }
+
 }

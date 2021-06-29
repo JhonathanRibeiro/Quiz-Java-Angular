@@ -1,5 +1,7 @@
 package com.example.apiquiz.models;
 
-public class Ranking {
-    
+public interface Ranking{
+	String getNome();
+	Long getPontos();
+	Long getSoma_tempo_respostas();
 }

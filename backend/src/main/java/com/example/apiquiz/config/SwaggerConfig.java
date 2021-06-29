@@ -36,7 +36,7 @@ public class SwaggerConfig {
                 "API REST.",
                 "1.0",
                 "Terms of Service",
-                new Contact("Jhonathan Ribeiro", "https://jhonathanribeiro.netlify.app",
+                new Contact("Jhonathan Ribeiro", "",
                         "jhonatan.ribeiro@ids.inf.br"),
                 "Apache License Version 2.0",
                 "https://www.apache.org/licesen.html", new ArrayList<VendorExtension>()
