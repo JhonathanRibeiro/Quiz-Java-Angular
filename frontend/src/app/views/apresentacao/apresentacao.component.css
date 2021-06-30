@@ -1,25 +1,29 @@
 .parent {
     position: relative;
-  }
+}
+
 .child {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
 h1 {
     font-size: 6em;
 }
+
 @-webkit-keyframes ef-pulse-grow {
     to {
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
-    }   
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
 }
+
 @keyframes ef-pulse-grow {
     to {
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
     }
 }
 
@@ -33,6 +37,6 @@ h1 {
     -webkit-animation-iteration-count: infinite;
     animation-iteration-count: infinite;
     -webkit-animation-direction: alternate;
-    animation-direction: alternate; 
-    color: .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out
+    animation-direction: alternate;
+    color: .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
 }
