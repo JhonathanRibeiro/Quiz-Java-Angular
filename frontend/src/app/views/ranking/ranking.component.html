@@ -4,70 +4,104 @@
         <div class="row text-center p-5">
             <h2 class="font-avocado title text-light">Ranking</h2>
         </div>
-        <!-- end title -->
-        <div class="row text-center first-placed" *ngFor="let data of ranking">
-            <div class="col-4 p-0 m-0">
-                <ul class="list-group">
-                    <li class="list-group-item active p-3 mt-4 bg-blue-light box-shadow border-0">
-                        <strong class="h5">{{data.nome}}</strong>
+
+        <div class="row">
+            <div class="col-xs-15 col-md-15 text-center quarto mt-5">
+                <ul class="list-group mt-4">
+                    <li class="list-group-item active bg-blue-light box-shadow border-0">
+                        <strong class="h5 txt-ellipses">{{quarto.nome}}</strong>
                     </li>
-                    <li class="list-group-item border-bottom-0 p-4 pb-4">
-                        <img src="./../../../assets/img/icons/estrela 2.png" alt="">
+                    <li class="list-group-item border-bottom-0 pb-2">
+                        <img src="./../../../assets/img/icons/estrela3.png" alt="">
                     </li>
-                    <li class="list-group-item">
+                    <li class="list-group-item pb-3">
                         <span class="text-darkblue h6">
-                            <strong class="h5">82 pontos</strong>
+                            <strong class="h5">{{quarto.pontos}} pontos</strong>
                         </span>
                     </li>
                 </ul>
             </div>
-            <div class="col-4 p-0 m-0">
-                <ul class="list-group">
-                    <li class="list-group-item active p-4 bg-blue-light box-shadow border-0">
-                        <strong class="h5">Tânia Mara Tartari</strong>
+            <div class="col-xs-15 col-md-15 text-center segundo mt-4">
+                <ul class="list-group mt-3">
+                    <li class="list-group-item active bg-blue-light box-shadow border-0 pb-3">
+                        <strong class="h5">{{segundo.nome}}</strong>
                     </li>
-                    <li class="list-group-item border-bottom-0 p-4 pb-3">
-                        <img src="./../../../assets/img/icons/estrela 1.png" alt="">
+                    <li class="list-group-item border-bottom-0 pb-4">
+                        <img src="./../../../assets/img/icons/estrela2.png" alt="">
                     </li>
-                    <li class="list-group-item">
+                    <li class="list-group-item pb-3">
                         <span class="text-darkblue h6">
-                            <strong class="h5">87 pontos</strong>
+                            <strong class="h5">{{segundo.pontos}} pontos</strong>
                         </span>
                     </li>
                 </ul>
             </div>
-            <div class="col-4 p-0 m-0">
+            <div class="col-xs-15 col-md-15 text-center primeiro">
                 <ul class="list-group">
-                    <li class="list-group-item active p-3 mt-5 bg-blue-light box-shadow border-0">
-                        <strong class="h5">Grasieli Lara</strong>
+                    <li class="list-group-item active bg-blue-light box-shadow border-0">
+                        <strong class="h5">{{primeiro.nome}}</strong>
                     </li>
-                    <li class="list-group-item border-bottom-0 p-4 pb-3">
-                        <img src="./../../../assets/img/icons/estrela 3.png" alt="">
+                    <li class="list-group-item border-bottom-0 p-4">
+                        <img src="./../../../assets/img/icons/estrela1.png" alt="">
                     </li>
-                    <li class="list-group-item">
+                    <li class="list-group-item pb-3">
                         <span class="text-darkblue h6">
-                            <strong class="h5">77 pontos</strong>
+                            <strong class="h5">{{primeiro.pontos}} pontos</strong>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-15 col-md-15 text-center terceiro mt-1">
+                <ul class="list-group mt-5">
+                    <li class="list-group-item active bg-blue-light box-shadow border-0">
+                        <strong class="h5">{{terceiro.nome}}</strong>
+                    </li>
+                    <li class="list-group-item border-bottom-0 p-3">
+                        <img src="./../../../assets/img/icons/estrela3.png" alt="">
+                    </li>
+                    <li class="list-group-item pb-3">
+                        <span class="text-darkblue h6">
+                            <strong class="h5">{{terceiro.pontos}} pontos</strong>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-15 col-md-15 text-center quinto mt-4">
+                <ul class="list-group mt-5">
+                    <li class="list-group-item active bg-blue-light box-shadow border-0">
+                        <strong class="h5">{{quinto.nome}}</strong>
+                    </li>
+                    <li class="list-group-item border-bottom-0 p-3">
+                        <img src="./../../../assets/img/icons/estrela3.png" alt="">
+                    </li>
+                    <li class="list-group-item p-0 m-0">
+                        <span class="text-darkblue h6 p-0 m-0">
+                            <strong class="h5">{{quinto.pontos}} pontos</strong>
                         </span>
                     </li>
                 </ul>
             </div>
         </div>
-        <!-- end primeiros colocados -->
-        <div class="row">
+
+        <div class="row classificacao">
             <div class="col-8 p-0 m-0">
                 <ul class="list-group">
                     <li class="list-group-item active ranking-second rounded-left border-right-0 p-3 h6 mb-0 pb-3 bg-green">Colocações</li>
-                    <li class="list-group-item border-left-0">4º Ingryd Thaiany Ravanelli Galon</li>
-                    <li class="list-group-item border-left-0">5º Eduardo Bastian</li>
-                    <li class="list-group-item border-left-0">6º Ana Reolon</li>
+                    <div *ngFor="let data of classificacao">
+                        <li class="list-group-item border-left-0">
+                            {{data.posicao}}º {{data.nome}}
+                        </li>
+                    </div>
                 </ul>
             </div>
             <div class="col-4 p-0 m-0">
                 <ul class="list-group">
                     <li class="list-group-item active ranking-second border-left-radius-0 p-3 h6 mb-0 pb-3 bg-green">Pontuação</li>
-                    <li class="list-group-item border-right-0 bg-green text-light bolder text-size-2">85</li>
-                    <li class="list-group-item border-right-0 bg-green text-light bolder text-size-2">80</li>
-                    <li class="list-group-item border-right-0 bg-green text-light bolder text-size-2">75</li>
+                    <div *ngFor="let data of classificacao">
+                        <li class="list-group-item border-right-0 bg-green text-light bolder text-size-2">
+                            {{data.pontos}}
+                        </li>
+                    </div>
                 </ul>
             </div>
         </div>

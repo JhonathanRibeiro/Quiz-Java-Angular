@@ -37,7 +37,7 @@ export class QuestioncardComponent implements OnInit {
 
   ngOnInit(): void {
     this.listaPerguntas();
-    this.timeQuestion();
+    // this.timeQuestion();
   }
 
   public listaPerguntas() {
@@ -88,10 +88,13 @@ export class QuestioncardComponent implements OnInit {
 
   public timeQuestion(): void {
     this.interval = setInterval(() => {
-
+      //Irá exibir o emoji quando o timer estiver em 10seg
       if (this.time <= 11) {
         document.querySelector('#timer')?.classList.add('text-danger')
         document.querySelector('#clock')?.classList.add('display-block')
+      } else {
+        document.querySelector('#timer')?.classList.remove('text-danger')
+        document.querySelector('#clock')?.classList.remove('display-block')
       }
 
       if (this.time > 1) {

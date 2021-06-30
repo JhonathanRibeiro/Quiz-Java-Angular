@@ -42,7 +42,7 @@
                         <mat-card-title>{{pergunta[currentQuiz].descricao}}</mat-card-title>
                     </mat-card-header>
                     <mat-card-content>
-                        <mat-radio-group [formControl]="control" aria-labelledby="example-radio-group-label" class="list-group list-group-flush" [(ngModel)]="answer">
+                        <mat-radio-group [formControl]="control" aria-labelledby="radio-group-label" class="list-group list-group-flush" [(ngModel)]="answer">
                             <mat-radio-button *ngFor="let opcao of pergunta[currentQuiz].listaOpcoes" class="list-group-item" [ngClass]="{
                                 'bg-hover-success': pergunta[currentQuiz].dificuldade === 'facil',
                                 'bg-hover-warning': pergunta[currentQuiz].dificuldade === 'media',
