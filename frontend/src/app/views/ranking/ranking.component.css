@@ -2,10 +2,6 @@
     font-size: 3rem!important;
 }
 
-.list-group {
-    margin-top: -11px!important;
-}
-
 .list-group-item {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
@@ -27,7 +23,67 @@
     border-top-left-radius: 0;
 }
 
-.first-placed {
-    padding: 0 5rem;
-    margin: 0 auto;
+.classificacao {
+    margin-top: -8px;
+}
+
+
+/* espaço do cabeçalho do ranking dos vencedores */
+
+li.list-group-item.active.bg-blue-light.box-shadow.border-0 {
+    padding: 2.5ch;
+}
+
+
+/* inserir limite para não quebrar o layout */
+
+.txt-ellipses {
+    white-space: nowrap;
+    width: 12em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* grid personalizado */
+
+.row>* {
+    padding: 0!important
+}
+
+.col-xs-15,
+.col-sm-15,
+.col-md-15,
+.col-lg-15 {
+    position: relative;
+    min-height: 1px;
+}
+
+
+/*Medias queries */
+
+.col-xs-15 {
+    width: 20%;
+    float: left;
+}
+
+@media (min-width: 768px) {
+    .col-sm-15 {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-md-15 {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col-lg-15 {
+        width: 20%;
+        float: left;
+    }
 }

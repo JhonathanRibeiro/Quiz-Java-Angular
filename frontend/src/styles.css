@@ -30,10 +30,6 @@ body {
     background-image: url("./assets/img/baloes-coloridos.png")!important;
 }
 
-.mat-radio-outer-circle {
-    border: none!important;
-}
-
 .bg-success {
     background-color: #00D279!important;
 }
@@ -57,6 +53,17 @@ body {
 
 .box-shadow {
     box-shadow: -2px 6px 7px 0px #3333;
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: #969696!important;
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle,
+.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple),
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple,
+.mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+    background-color: #303030!important;
 }
 
 .bolder {
