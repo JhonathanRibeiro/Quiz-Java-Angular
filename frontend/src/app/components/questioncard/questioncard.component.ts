@@ -36,22 +36,20 @@ export class QuestioncardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.autenticacao();
     this.listaPerguntas();
-    // this.timeQuestion();
+    this.timeQuestion();
   }
 
   public listaPerguntas() {
     this.quizService.listaPergunta().subscribe(question => {
       this.pergunta = question
-      console.log(`Perguntas: ${this.pergunta}`)
     }, err => {
-      console.log('Não foi possível exibir a pergunta.', err);
+      console.error('Não foi possível exibir a pergunta.', err);
     });
   }
 
   public onAnswer(): void {
-    console.log(`Perguntas onAnswer: ${this.pergunta}`)
-
     this.resposta = {
       opcao_id: {
         id: parseInt(this.answer)
@@ -82,8 +80,6 @@ export class QuestioncardComponent implements OnInit {
     }
 
     this.time = 30;
-
-    console.log('Escolha: ', this.resposta)
   }
 
   public timeQuestion(): void {
@@ -91,9 +87,11 @@ export class QuestioncardComponent implements OnInit {
       //Irá exibir o emoji quando o timer estiver em 10seg
       if (this.time <= 11) {
         document.querySelector('#timer')?.classList.add('text-danger')
+        document.querySelector('#timer')?.classList.add('ef-pulse-grow')
         document.querySelector('#clock')?.classList.add('display-block')
       } else {
         document.querySelector('#timer')?.classList.remove('text-danger')
+        document.querySelector('#timer')?.classList.remove('ef-pulse-grow')
         document.querySelector('#clock')?.classList.remove('display-block')
       }
 
@@ -108,6 +106,7 @@ export class QuestioncardComponent implements OnInit {
         }
 
         document.querySelector('#timer')?.classList.remove('text-danger')
+        document.querySelector('#timer')?.classList.remove('ef-pulse-grow')
         document.querySelector('#clock')?.classList.remove('display-block')
 
         this.time = 30;
@@ -119,4 +118,9 @@ export class QuestioncardComponent implements OnInit {
     }, 1000)
   }
 
+  public autenticacao(): void {
+    if(localStorage.getItem("id") === null || localStorage.getItem("nome") === null) {
+      window.location.replace('/login');
+    }
+  }
 }

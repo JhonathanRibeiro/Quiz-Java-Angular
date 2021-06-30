@@ -1,3 +1,4 @@
+import { AuthService } from 'src/app/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { QuizService } from 'src/app/quiz.service';
 
@@ -20,6 +21,7 @@ export class RankingComponent implements OnInit {
 
   constructor(
     private api: QuizService,
+    private auth: AuthService
     ) { }
 
   ngOnInit(): void {
@@ -83,7 +85,8 @@ export class RankingComponent implements OnInit {
   }
 
   public autenticacao(): void {
-    if(localStorage.getItem("usuario") === null) {
+    if(localStorage.getItem("usuario") === null || localStorage.getItem("usuario") != "admin@ids.inf.br") {
+      this.auth.clearStorage();
       window.location.replace('/admin/login');
     }
   }

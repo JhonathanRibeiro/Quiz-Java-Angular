@@ -7,14 +7,9 @@
 
 html,
 body {
-    height: 100%;
-}
-
-body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-    background-repeat: no-repeat;
-    background-size: cover;
+    height: 100%!important;
+    width: 100%!important;
+    margin: 0!important;
 }
 
 .bg-balloons-blue {
