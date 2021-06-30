@@ -85,7 +85,7 @@ export class RankingComponent implements OnInit {
   }
 
   public autenticacao(): void {
-    if(localStorage.getItem("usuario") === null || localStorage.getItem("usuario") != "admin@ids.inf.br") {
+    if(localStorage.getItem("usuario") === null) {
       this.auth.clearStorage();
       window.location.replace('/admin/login');
     }
