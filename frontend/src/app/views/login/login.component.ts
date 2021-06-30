@@ -29,8 +29,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
   
   public login(): void {
     console.log(JSON.stringify(this.formulario.value))
@@ -48,6 +47,7 @@ export class LoginComponent implements OnInit {
           nome: user.nome,
           email: user.email
         }
+
         this.http.sendEmail("http://localhost:3000/sendmail", userdata).subscribe(
           data => {
             let res:any = data; 
@@ -68,7 +68,7 @@ export class LoginComponent implements OnInit {
           document.querySelector('#email-invalido')!.innerHTML = `
           <span class="text-danger">Este endereço de e-mail já está associado a uma conta existente.</span>
           `;
-          console.error('Não foi possível cadastrar o usuário! Este endereço de e-mail já está associado a uma conta existente', err)
+          console.error('Não foi possível cadastrar o usuário! Este endereço de e-mail já está associado a uma conta existente', err);
         });
     } 
   }
