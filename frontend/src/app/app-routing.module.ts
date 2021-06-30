@@ -18,11 +18,9 @@ const routes: Routes = [
   { path:'quiz', component: QuestioncardComponent },
   { path:'agradecimento', component: AgradecimentoComponent },
   
-  { path: 'admin/login', component: LoginAdminComponent },
-  { path: 'admin/ranking', component: RankingComponent },
+  { path: 'admin/login', component: LoginAdminComponent},
+  { path: 'admin/ranking', component: RankingComponent},
 ];
-
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

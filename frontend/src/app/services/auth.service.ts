@@ -46,7 +46,7 @@ export class AuthService {
   }
 
   logar(usuario: Usuario) {
-    if(usuario.nome === 'admin@ids.inf.br' && usuario.senha === 'admin0207') {
+    if(usuario.email === 'admin@ids.inf.br' && usuario.senha === 'admin0207') {
         this.usuarioAuth = true;
         this.router.navigate(['/admin/ranking']);
       } else {

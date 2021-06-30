@@ -26,6 +26,8 @@ import { NavbarRankingComponent } from './components/navbar-ranking/navbar-ranki
 import { NavbarQuestionComponent } from './components/navbar-question/navbar-question.component';
 import { LoginAdminComponent } from './views/admin/account/login-admin/login-admin.component';
 
+import { CanActivateRouteGuard } from './can-activate-route.guard';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +56,7 @@ import { LoginAdminComponent } from './views/admin/account/login-admin/login-adm
     ReactiveFormsModule,
     MatCardModule
   ],
-  providers: [HttpClientModule,QuizService],
+  providers: [HttpClientModule,QuizService,CanActivateRouteGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
