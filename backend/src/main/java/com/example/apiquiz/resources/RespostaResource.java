@@ -32,18 +32,6 @@ public class RespostaResource {
 	
 	@Autowired
 	RespostaRepository respostaRepository;
-	
-	@GetMapping("/respostas")
-	@ApiOperation(value="Retorna uma lista com as respostas de todos os usuários")
-	public List<Resposta> listaRespostas(){
-		return respostaRepository.findAll();
-	}
-	
-	@GetMapping("/resposta/{id}")
-	@ApiOperation(value="Retorna a resposta de um usuário específico")
-	public Resposta listaUmaResposta(@PathVariable(value="id") long id){
-		return respostaRepository.findById(id);
-	}
 
 	@PostMapping("/resposta")
 	@ApiOperation(value="Cadastra uma resposta")

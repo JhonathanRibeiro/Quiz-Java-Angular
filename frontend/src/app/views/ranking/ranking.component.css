@@ -38,10 +38,10 @@ li.list-group-item.active.bg-blue-light.box-shadow.border-0 {
 /* inserir limite para não quebrar o layout */
 
 .txt-ellipses {
-    white-space: nowrap;
-    width: 12em;
+    white-space: nowrap; 
+    width: 50px; 
     overflow: hidden;
-    text-overflow: ellipsis;
+    text-overflow: clip; 
 }
 
 
