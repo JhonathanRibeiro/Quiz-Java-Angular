@@ -7,15 +7,15 @@
         <div class="col-md-6 offset-md-3 align-top">
             <form>
                 <div class="form-group">
-                    <label for="user">Usuário</label>
-                    <input type="text" id="user" class="form-control" [(ngModel)]="usuario.nome" [ngModelOptions]="{standalone:true}">
+                    <label for="email">Usuário</label>
+                    <input type="text" id="email" class="form-control" [(ngModel)]="usuario.email" [ngModelOptions]="{standalone:true}">
                     <br>
                 </div>
 
                 <div class="form-group">
                     <label for="pwd">Senha</label>
                     <input type="password" id="pwd" class="form-control" [(ngModel)]="usuario.senha" [ngModelOptions]="{standalone:true}">
-                    <span id="senha-inválida"></span>
+                    <span id="erro-message"></span>
                     <br><br>
                 </div>
 

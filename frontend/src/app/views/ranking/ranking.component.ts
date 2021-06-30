@@ -18,9 +18,12 @@ export class RankingComponent implements OnInit {
   public quarto: any = {};
   public quinto: any = {};
 
-  constructor(private api: QuizService) { }
+  constructor(
+    private api: QuizService,
+    ) { }
 
   ngOnInit(): void {
+    this.autenticacao();
     this.getlistaRanking();
   }
 
@@ -79,4 +82,9 @@ export class RankingComponent implements OnInit {
     return (value.posicao > 5);
   }
 
+  public autenticacao(): void {
+    if(localStorage.getItem("usuario") === null) {
+      window.location.replace('/admin/login');
+    }
+  }
 }
