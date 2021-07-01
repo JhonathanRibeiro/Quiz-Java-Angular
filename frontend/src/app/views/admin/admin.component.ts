@@ -8,25 +8,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor(api: QuizService) { }
+  public resultado: Array<any> = new Array();
+  public participantes: any = {};
+
+  public tempo: any = {};
+
+  constructor(private api: QuizService) { }
 
   ngOnInit(): void {
+    this.getResultado();
   }
 
-  listar() {
+  public getResultado(): void {
+    this.api.listaRanking().subscribe(data => {
+      this.resultado = data;
+      this.tempo = this.setCalculoTempo(data.soma_tempo_respostas),
 
+      console.log(`Ranking: ${JSON.stringify(this.resultado)}`)
+    }, err => {
+      console.log('Não foi possível exibir o resultado.', err);
+    });
   }
 
-  cadastrar() {
-
+  public setCalculoTempo(value: any) {
+    return (value.soma_tempo_respostas - 450 / 60);
   }
 
-  atualizar() {
-
-  }
-
-  remover() {
-
-  }
 
 }
