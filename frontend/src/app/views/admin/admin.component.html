@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Pontos</th>
+                        <th scope="col">Tempo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of resultado">
+                        <th scope="row">{{data.posicao}}</th>
+                        <td>{{data.nome}}</td>
+                        <td>{{data.pontos}}</td>
+                        <td>{{tempo}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

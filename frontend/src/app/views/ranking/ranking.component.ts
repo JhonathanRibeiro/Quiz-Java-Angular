@@ -35,6 +35,8 @@ export class RankingComponent implements OnInit {
       this.getListaVencedores();
       this.getListaDemaisParticipantes();
 
+      console.log(`Ranking: ${JSON.stringify(this.rankingTotal)}`)
+
       this.vencedores.forEach((v: any) => {
         if (v.posicao == 1) {
           this.primeiro = {
