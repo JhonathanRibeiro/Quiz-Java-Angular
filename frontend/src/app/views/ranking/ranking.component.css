@@ -7,6 +7,10 @@
     border-bottom-right-radius: 0;
 }
 
+.list-group-item-pd {
+    padding: 1ch 1rem;
+}
+
 .ranking-second {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
@@ -38,10 +42,14 @@ li.list-group-item.active.bg-blue-light.box-shadow.border-0 {
 /* inserir limite para não quebrar o layout */
 
 .txt-ellipses {
-    white-space: nowrap; 
-    width: 50px; 
+    white-space: nowrap;
+    width: 50px;
     overflow: hidden;
-    text-overflow: clip; 
+    text-overflow: clip;
+}
+
+.pad-2 {
+    padding: 1.1ch!important;
 }
 
 
@@ -81,9 +89,4 @@ li.list-group-item.active.bg-blue-light.box-shadow.border-0 {
     }
 }
 
-@media (min-width: 1200px) {
-    .col-lg-15 {
-        width: 20%;
-        float: left;
-    }
-}
+@media (min-width: 1200px) {}
