@@ -25,6 +25,5 @@ export class LoginAdminComponent{
       <span class="text-danger">Usuário ou senha inválidos.</span>
       `;
     }
-    console.log(this.usuario.email);
   }
 }
