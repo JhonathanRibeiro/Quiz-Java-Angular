@@ -1,5 +1,6 @@
 import { AuthService } from './../../services/auth.service';
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-agradecimento',
@@ -9,20 +10,14 @@ import { Component, Input, OnInit } from '@angular/core';
 export class AgradecimentoComponent implements OnInit {
   @Input() public nome: string = '';
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
-    window.history.forward();
     this.nome = this.auth.getStorage('nome');
-    /*Irá remover o usuário do localstorage e em seguida redirecionar
-    *para a tela de login, nesta etapa, um método irá verificar se o 
-    *usuário informado já existe no sistema, caso exista, não deverá
-    *permitir realizar o login.
-    */
+    
     setTimeout(()=>{
       this.auth.clearStorage();
-      window.location.replace("/login");
-    }, 5000);
+    }, 2000);
   }
 
 }

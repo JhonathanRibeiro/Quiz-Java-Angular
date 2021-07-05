@@ -49,6 +49,11 @@ body {
     box-shadow: -2px 6px 7px 0px #3333;
 }
 
+mat-radio-button {
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
 .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
     border-color: #969696!important;
 }
@@ -70,6 +75,10 @@ body {
 
 .text-size-2 {
     font-size: 20px;
+}
+
+.mat-radio-label {
+    white-space: normal!important;
 }
 
 .font-avocado {
