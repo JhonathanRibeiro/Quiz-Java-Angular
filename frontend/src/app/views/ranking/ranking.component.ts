@@ -1,6 +1,7 @@
 import { AuthService } from 'src/app/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { QuizService } from 'src/app/quiz.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ranking',
@@ -21,7 +22,8 @@ export class RankingComponent implements OnInit {
 
   constructor(
     private api: QuizService,
-    private auth: AuthService
+    private auth: AuthService,
+    private router: Router
     ) { }
 
   ngOnInit(): void {
@@ -89,7 +91,7 @@ export class RankingComponent implements OnInit {
   public autenticacao(): void {
     if(localStorage.getItem("usuario") === null) {
       this.auth.clearStorage();
-      window.location.replace('/admin/login');
+      this.router.navigate(['/admin/login']);
     }
   }
 }

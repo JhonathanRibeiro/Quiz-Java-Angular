@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -8,14 +9,14 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class NavbarRankingComponent implements OnInit {
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   public logout(): void {
     this.auth.clearStorage();
-    window.location.replace('/admin/login');
+    this.router.navigate(['/admin/login']);
   }
 
 }

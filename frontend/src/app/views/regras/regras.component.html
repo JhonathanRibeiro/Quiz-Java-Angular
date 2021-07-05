@@ -18,7 +18,7 @@
                 <div class="content-group">
                     <div class="content-item">
                         <span class="fw-bold text-primary">O que vamos fazer aqui?</span>
-                        <p>Considerando a jornada da IDS entre estes 18 anos, elaboramos um questionário com 30 perguntas,abordando os mais variados temas para você testar seus conhecimentos.</p>
+                        <p>Considerando a jornada da IDS entre estes 18 anos, elaboramos um questionário com 30 perguntas, abordando os mais variados temas para você testar seus conhecimentos.</p>
                     </div>
 
                     <div class="content-item">
@@ -30,7 +30,13 @@
                         <p>Em casos de empate, serão avaliados os seguintes requisitos:</p>
                         <ol>
                             <li>Quantidade de perguntas respondidas corretamente;</li>
-                            <li>Menor média de tempo.</li>
+                            <li>Grau de complexidade.</li>
+                            <ul>
+                                <li>Fácil: 1 ponto</li>
+                                <li>Média: 2 pontos</li>
+                                <li>Difícil: 3 pontos</li>
+                            </ul>
+                            <li>Menor média de tempo. (30 segundos por pergunta)</li>
                         </ol>
                     </div>
 
@@ -48,7 +54,7 @@
                             </div>
                             <div class="col-md-6 col-sm-6 col-lg-6">
                                 <div class="d-flex justify-content-end pt-2 mt-5">
-                                    <button class="btn btn-primary btn-rounded font-avocado" routerLink="/apresentacao">Começar</button>
+                                    <button class="btn btn-primary btn-rounded font-avocado" (click)="comecar()">Começar</button>
                                 </div>
                             </div>
                         </div>

@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,8 +24,8 @@ public class Opcao implements Serializable{
 	@Column(length=200)
 	private String descricao;
 	
-	
 	@Column(length=4)
+	@JsonIgnore
 	private String opcao_correta;
 	
 	private BigDecimal score;

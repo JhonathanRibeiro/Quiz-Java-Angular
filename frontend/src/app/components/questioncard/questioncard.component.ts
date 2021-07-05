@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { QuizService } from 'src/app/quiz.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-questioncard',
@@ -16,7 +17,7 @@ export class QuestioncardComponent implements OnInit {
     id: null
   }
 
-  public time: number = 15;
+  public time: number = 30;
 
   public pergunta: Array<any> = new Array();
   public opcao: Array<any> = new Array();
@@ -29,14 +30,16 @@ export class QuestioncardComponent implements OnInit {
   public count = 1;
   public interval: any;
   public answer: any;
+  
 
   constructor(
     private quizService: QuizService,
-    private auth: AuthService
+    private auth: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
-    this.autenticacao();
+    // this.autenticacao();
     this.listaPerguntas();
     this.timeQuestion();
   }
@@ -50,6 +53,7 @@ export class QuestioncardComponent implements OnInit {
   }
 
   public onAnswer(): void {
+    
     this.resposta = {
       opcao_id: {
         id: parseInt(this.answer)
@@ -62,21 +66,28 @@ export class QuestioncardComponent implements OnInit {
       },
       tempo_resposta: this.time
     }
+    console.log('antes' + this.answer);
+
+    console.log('antes1' + this.resposta.opcao_id);
+   
     //se a escolha dor indefinido(caso o usuário nao seleciona nenhuma) a opção é salva como null
-    if (this.answer == undefined) {
+    if (this.answer == undefined || this.answer == 0) {
+      console.log('entrou' + this.answer);
       this.resposta.opcao_id = null;
     }
     //registrando a resposta
     this.quizService.cadastraResposta(this.resposta).subscribe(res => {
       this.resposta = new RespostaModule();
+
     });
+    
+    this.answer = 0
 
     this.currentQuiz++;
     //se a qtde de questoes for maior do que a qtde de perguntas irá redirecionar para a tela de agradecimento
     if (this.currentQuiz >= this.pergunta.length) {
-      setTimeout(() => {
-        window.location.replace("/agradecimento");
-      }, 500)
+      clearInterval(this.interval);
+      this.router.navigate(['/agradecimento']);
     }
 
     this.time = 30;
@@ -98,8 +109,8 @@ export class QuestioncardComponent implements OnInit {
       if (this.time > 1) {
         this.time--;
       } else {
-
         if (this.time == 1) {
+          this.answer = 0;
           this.onAnswer();
         } else {
           this.currentQuiz++;
@@ -112,7 +123,7 @@ export class QuestioncardComponent implements OnInit {
         this.time = 30;
 
         if (this.currentQuiz == this.pergunta.length) {
-          window.location.replace("/agradecimento");
+          this.router.navigate(['/agradecimento']);
         }
       }
     }, 1000)
@@ -120,7 +131,7 @@ export class QuestioncardComponent implements OnInit {
 
   public autenticacao(): void {
     if(localStorage.getItem("id") === null || localStorage.getItem("nome") === null) {
-      window.location.replace('/login');
+      this.router.navigate(['/login']);
     }
   }
 }

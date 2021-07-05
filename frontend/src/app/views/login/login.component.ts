@@ -1,9 +1,12 @@
 import { UsuarioModel } from './usuario.model';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { QuizService } from 'src/app/quiz.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpService } from 'src/app/services/http-service.service';
+import { Router } from '@angular/router';
+import { MatRadioButton } from '@angular/material/radio';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-login',
@@ -11,17 +14,24 @@ import { HttpService } from 'src/app/services/http-service.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+
+  
+  @ViewChild(MatRadioButton) groupC: any = {};
+
   public usuario: UsuarioModel = new UsuarioModel();
   public formulario: FormGroup = new FormGroup({});
-
+  public onde = 'casa';
   constructor(
     private formBuilder: FormBuilder,
     private api: QuizService,
     private auth: AuthService,
-    private http: HttpService
+    private http: HttpService,
+    private router: Router,
+    public apiCOnfig: ApiService
     ){ 
       this.formulario = this.formBuilder.group({
         nome: ['', Validators.required],
+        tipo: ['caas'],
         email: ['', Validators.compose([
             Validators.required,
             Validators.email
@@ -30,6 +40,13 @@ export class LoginComponent {
   }
 
   public login(): void {
+
+    if (this.onde == 'casa') {
+      this.apiCOnfig.externo();
+    } else {
+      this.apiCOnfig.interno();
+    }
+
     if(this.formulario.valid) {
 
       this.api.cadastraUsuario(this.usuario).subscribe(user =>{
@@ -58,7 +75,7 @@ export class LoginComponent {
           }
         );
       
-        window.location.replace("/regras");
+        this.router.navigate(['/regras']);
 
         }, err => {
           document.querySelector('#email-invalido')!.innerHTML = `
