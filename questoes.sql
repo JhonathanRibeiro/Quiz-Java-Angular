@@ -142,7 +142,7 @@ values
 (85,'78','NAO',1,22),
 (86,'90','NAO',1,22),
 (87,'110','SIM',1,22),
-(88,'190','SIM',1,22),
+(88,'190','NAO',1,22),
 
 (89,'UX está relacionado com a experiência do usuário e com seus sentimentos, enquanto UI é a forma com que o usuário alcança tal experiência.','SIM',2,23),
 (90,'UX está relacionado com a experiência do usuário e com seus sentimentos, enquanto UI é a forma de lidar com as dores e emoções dos usuários.','NAO',2,23),
