@@ -1,4 +1,5 @@
-# quiz-app
+# Quiz aniversário 18 anos IDS
+
 API Rest com Spring boot, JPA/Hibernate - Angular 9 e PostgreSQL
 
 ### Login
