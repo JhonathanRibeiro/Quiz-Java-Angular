@@ -3,44 +3,40 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { RespostaModule } from './models/resposta.module';
-import { ApiService } from './services/api.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class QuizService {
-  public baseUrl: String;
+  public baseUrl;
 
   constructor(
-    private http: HttpClient,
-    private api: ApiService
-    ) {
-    this.baseUrl = this.api.api;
-    // this.baseUrl = `http://localhost:8080/api`;
+    private http: HttpClient) {
+    this.baseUrl = environment;
    }
 
   listaPergunta() : Observable<any> {
-    return this.http.get(`${this.api.api}/perguntas`);
+    return this.http.get(`${this.baseUrl.api}/perguntas`);
   }
   
   listaOpcoes() : Observable<any> {
-    return this.http.get(`${this.api.api}/opcoes`);
+    return this.http.get(`${this.baseUrl.api}/opcoes`);
   }
 
   listaUsuarios() : Observable<any> {
-    return this.http.get(`${this.api.api}/usuarios`);
+    return this.http.get(`${this.baseUrl.api}/usuarios`);
   }
 
   listaRanking() : Observable<any> {
-    return this.http.get(`http://192.168.0.217:8080/api/ranking`);
+    return this.http.get(`${this.baseUrl.api}/ranking`);
   }
 
   cadastraUsuario(usuario: UsuarioModel): Observable<any> {
-    return this.http.post(`${this.api.api}/usuario/`, usuario);
+    return this.http.post(`${this.baseUrl.api}/usuario/`, usuario);
   }
 
   cadastraResposta(resposta: RespostaModule): Observable<any> {
-    return this.http.post(`${this.api.api}/resposta`, resposta);
+    return this.http.post(`${this.baseUrl.api}/resposta`, resposta);
   }
-
 }

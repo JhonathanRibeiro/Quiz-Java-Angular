@@ -52,6 +52,9 @@ li.list-group-item.active.bg-blue-light.box-shadow.border-0 {
     padding: 1.1ch!important;
 }
 
+.pb-10 {
+    padding-bottom: 10px;
+}
 
 /* grid personalizado */
 

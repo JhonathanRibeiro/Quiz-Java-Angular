@@ -14,13 +14,10 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
-  
   @ViewChild(MatRadioButton) groupC: any = {};
 
   public usuario: UsuarioModel = new UsuarioModel();
   public formulario: FormGroup = new FormGroup({});
-  public onde = 'casa';
   constructor(
     private formBuilder: FormBuilder,
     private api: QuizService,
@@ -31,7 +28,6 @@ export class LoginComponent {
     ){ 
       this.formulario = this.formBuilder.group({
         nome: ['', Validators.required],
-        tipo: ['caas'],
         email: ['', Validators.compose([
             Validators.required,
             Validators.email
@@ -40,13 +36,6 @@ export class LoginComponent {
   }
 
   public login(): void {
-
-    if (this.onde == 'casa') {
-      this.apiCOnfig.externo();
-    } else {
-      this.apiCOnfig.interno();
-    }
-
     if(this.formulario.valid) {
 
       this.api.cadastraUsuario(this.usuario).subscribe(user =>{
@@ -69,7 +58,7 @@ export class LoginComponent {
             );
           },
           err => {
-            return Promise.reject('Não deu boa!').catch(err => {
+            return Promise.reject(`Não foi possível enviar o e-mail! ${err}`).catch(err => {
               throw new Error(err);
             });
           }

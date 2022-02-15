@@ -7,11 +7,6 @@
         <div class="col-md-6 offset-md-3 align-top">
 
             <form [formGroup]="formulario">
-                <mat-radio-group [(ngModel)]="onde" formControlName="tipo" #group aria-label="Select an option">
-                    <mat-radio-button value="casa">Em casa</mat-radio-button>
-                    <mat-radio-button value="ids">Na IDS</mat-radio-button>
-                  </mat-radio-group>
-
                 <div class="form-group">
                     <label for="nome">Qual seu nome completo?</label>
                     <input type="text" id="nome" formControlName="nome" [(ngModel)]="usuario.nome" class="form-control" aria-describedby="nome" placeholder="Seu nome completo...">
